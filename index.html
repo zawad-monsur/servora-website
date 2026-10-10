@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400..700&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
+    <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -33,6 +34,7 @@
         </nav>
         <a class="btn btn-light btn-sm" data-cta href="#contact">Book a demo</a>
     </div>
+    <span class="progress" aria-hidden="true"></span>
 </header>
 
 <main id="main">
@@ -41,14 +43,14 @@
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="wrap hero-grid">
             <div class="hero-copy">
-                <p class="eyebrow"><span class="dot"></span> Made in Dhaka, for Bangladeshi restaurants</p>
+                <p class="eyebrow intro"><span class="dot"></span> Made in Dhaka, for Bangladeshi restaurants</p>
                 <h1>The calm, fast restaurant system your counter deserves.</h1>
-                <p class="lead">Take orders in seconds, print beautiful Bangla receipts, accept bKash and Nagad, track every gram of stock and see exactly what sells. Start with what you need and add modules as you grow.</p>
-                <div class="hero-ctas">
+                <p class="lead intro" style="--d:700ms">Take orders in seconds, print beautiful Bangla receipts, accept bKash and Nagad, track every gram of stock and see exactly what sells. Start with what you need and add modules as you grow.</p>
+                <div class="hero-ctas intro" style="--d:850ms">
                     <a class="btn btn-accent" data-cta href="#contact">Book a free demo</a>
                     <a class="btn btn-ghost" href="#pricing">See pricing <span aria-hidden="true">→</span></a>
                 </div>
-                <ul class="hero-points">
+                <ul class="hero-points intro" style="--d:1000ms">
                     <li>14-day free trial</li>
                     <li>We set up your menu for you</li>
                     <li>Runs on any laptop or Android tablet</li>
@@ -69,14 +71,16 @@
     <section class="strip" aria-label="Who it is for">
         <div class="wrap strip-inner">
             <span>Built for</span>
-            <ul>
+            <div class="marquee"><ul>
                 <li>Cafés &amp; coffee shops</li>
                 <li>Burger &amp; pizza joints</li>
                 <li>Casual dining</li>
                 <li>Juice &amp; shake bars</li>
                 <li>Cloud kitchens</li>
                 <li>Bakeries</li>
-            </ul>
+                <li>Food courts</li>
+                <li>Dessert parlours</li>
+            </ul></div>
         </div>
     </section>
 
@@ -103,7 +107,7 @@
                         <h3>Receipts guests actually keep</h3>
                         <p>Your logo, daily token number, VAT line, Wi-Fi and a QR to your menu. Bangla prints perfectly on any thermal printer.</p>
                     </div>
-                    <figure class="card-receipt protect"><img src="assets/img/receipt.webp" width="340" height="1050" alt="Printed receipt with Bangla thank-you message" loading="lazy" draggable="false"></figure>
+                    <figure class="card-receipt protect"><img src="assets/img/receipt.webp" width="272" height="840" alt="Printed receipt with Bangla thank-you message" loading="lazy" draggable="false"></figure>
                 </article>
 
                 <article class="card reveal">
@@ -117,12 +121,12 @@
                 <article class="card reveal">
                     <div class="card-copy">
                         <h3>Hold, resume, token numbers</h3>
-                        <p>Park a table’s order, serve the next guest, and pick it back up with one tap. Every void needs a reason, and every reason is logged.</p>
+                        <p>Park a table’s order, serve the next guest, and pick it back up with one tap. Cancelling a paid bill needs a manager and a reason, so cash can’t quietly disappear.</p>
                     </div>
                     <ul class="mini-list" aria-hidden="true">
                         <li><span class="badge">Token 12</span> Dine-in · T4 <em>৳1,240</em></li>
                         <li><span class="badge">Token 15</span> Takeaway <em>৳680</em></li>
-                        <li><span class="badge muted">Void</span> “Wrong item” · Manager <em>৳320</em></li>
+                        <li><span class="badge muted">Cancelled</span> “Wrong item” · by Manager <em>৳320</em></li>
                     </ul>
                 </article>
 
@@ -153,9 +157,9 @@
                 <p class="lead">Sales by day, the hour your kitchen gets slammed, which dishes earn and which ones just sit there, and how guests pay. All updated the moment an order is paid.</p>
             </header>
             <div class="insight-stage">
-                <figure class="shot ins-trend protect reveal"><img src="assets/img/frag-trend.webp" width="911" height="438" alt="Net sales by day chart" loading="lazy" draggable="false"></figure>
-                <figure class="shot ins-mix protect reveal"><img src="assets/img/frag-paymix.webp" width="444" height="438" alt="Payment mix: cash, bKash, card, Nagad" loading="lazy" draggable="false"></figure>
-                <figure class="shot ins-heat protect reveal"><img src="assets/img/frag-heatmap.webp" width="911" height="413" alt="Busiest hours heatmap" loading="lazy" draggable="false"></figure>
+                <figure class="shot ins-trend protect wipe"><img src="assets/img/frag-trend.webp" width="911" height="438" alt="Net sales by day chart" loading="lazy" draggable="false"></figure>
+                <figure class="shot ins-mix protect wipe"><img src="assets/img/frag-paymix.webp" width="444" height="438" alt="Payment mix: cash, bKash, card, Nagad" loading="lazy" draggable="false"></figure>
+                <figure class="shot ins-heat protect wipe"><img src="assets/img/frag-heatmap.webp" width="911" height="413" alt="Busiest hours heatmap" loading="lazy" draggable="false"></figure>
             </div>
         </div>
     </section>
@@ -207,7 +211,7 @@
                 <p class="lead">Not a chatbot that rewrites your reviews. An assistant that reads your real sales, stock and staff activity and tells you what to do next.</p>
                 <ul class="ai-list">
                     <li><b>Morning briefing</b> Yesterday’s numbers, what was unusual and what to prep today, sent to your phone.</li>
-                    <li><b>Theft &amp; leak alerts</b> Unusual voids, discounts or cash gaps flagged by cashier and shift.</li>
+                    <li><b>Theft &amp; leak alerts</b> Unusual cancellations, discounts or cash gaps flagged by cashier and shift.</li>
                     <li><b>Reorder suggestions</b> How much patty, cheese and milk to buy based on what you’ll sell this week.</li>
                 </ul>
             </div>
@@ -217,8 +221,8 @@
                     <p><b>Classic Beef Burger</b> led yesterday with <b>38 sold</b> (৳12,160), up 18% on last Friday. Dinner from 8–9 pm brought 31% of it.</p>
                     <p class="hint">You’re likely to run low on burger buns by Saturday evening. Order 120 more.</p>
                 </div>
-                <div class="msg me">Any voids I should look at?</div>
-                <div class="msg bot"><p>3 voids after 10 pm on one register, all marked “Wrong item”. That’s higher than usual for that shift.</p></div>
+                <div class="msg me">Any cancelled bills I should look at?</div>
+                <div class="msg bot"><p>3 bills were cancelled after 10 pm on one register, all marked “Wrong item”. That’s higher than usual for that shift.</p></div>
             </div>
         </div>
     </section>

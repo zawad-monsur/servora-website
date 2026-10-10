@@ -96,20 +96,21 @@ p { margin: 0; }
 .hero-points { display: flex; flex-wrap: wrap; gap: 8px 22px; list-style: none; padding: 0; margin: 28px 0 0; color: var(--muted-d); font-size: 14px; }
 .hero-points li::before { content: '✓'; color: var(--accent-2); margin-right: 8px; font-weight: 700; }
 
-.hero-visual { position: relative; height: 580px; perspective: 1600px; }
-.shot { margin: 0; border-radius: var(--r-md); overflow: hidden; box-shadow: var(--shadow-d); background: #fff; }
-.shot-items { position: absolute; left: -4%; top: 40px; width: 92%; transform: rotateY(14deg) rotateX(6deg) rotateZ(-2deg); transform-origin: left center; opacity: 0.92; animation: drift 9s ease-in-out infinite alternate; }
-.shot-cart { position: absolute; right: 12%; top: 0; width: 38%; transform: rotateY(-8deg) rotateZ(1.5deg); border-radius: 20px; animation: drift 11s ease-in-out infinite alternate-reverse; }
-.shot-phone { position: absolute; right: -4%; bottom: -10px; width: 30%; border-radius: 30px; border: 8px solid #0b0d0b; box-shadow: var(--shadow-d), 0 0 0 1px rgba(255, 255, 255, 0.12); animation: drift 10s ease-in-out infinite alternate; }
-@keyframes drift { from { translate: 0 0; } to { translate: 0 -12px; } }
+.hero-visual { position: relative; height: 600px; }
+.shot { margin: 0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-d); background: transparent; }
+.shot-items { left: 0; top: 40px; width: 88%; border-radius: 18px; }
+/* Beats .protect (position: relative) for the layered hero images. */
+.hero-visual .shot { position: absolute; }
+.shot-cart { right: 0; top: 176px; width: 35%; border-radius: 20px; z-index: 2; }
+.shot-phone { left: 5%; top: 250px; width: 26%; z-index: 2; border-radius: 30px; border: 7px solid #0b0d0b; box-shadow: var(--shadow-d), 0 0 0 1px rgba(255, 255, 255, 0.12); }
 
 .chip { position: absolute; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 16px; background: rgba(23, 26, 23, 0.82); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: var(--shadow-d); font-size: 14px; }
 .chip b { display: block; font-family: var(--display); font-size: 17px; }
 .chip small { color: var(--muted-d); font-size: 12px; }
-.chip-pay { left: 2%; bottom: 60px; }
+.chip-pay { left: 36%; bottom: 36px; z-index: 3; }
 .chip-ico { width: 34px; height: 34px; border-radius: 10px; }
 .chip-ico.bkash { background: linear-gradient(135deg, #e2136e, #b30f58); }
-.chip-token { left: 44%; top: -18px; flex-direction: column; gap: 0; padding: 10px 18px; text-align: center; }
+.chip-token { left: 62%; top: 4px; z-index: 3; flex-direction: column; gap: 0; padding: 10px 18px; text-align: center; }
 .chip-token b { font-size: 30px; line-height: 1; color: var(--accent-2); }
 
 /* Watermark + anti-drag on product imagery */
@@ -142,10 +143,11 @@ p { margin: 0; }
 .card.wide { grid-column: span 3; display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; }
 .card h3 { font-size: 23px; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 8px; }
 .card p { color: var(--muted-l); font-size: 16px; }
-.card-shot { margin: 0 -30px -30px; border-top: 1px solid var(--line-l); background: #f3f1ea; }
+.card-shot { margin: 0; background: transparent; }
+.card-shot img { border-radius: 18px; box-shadow: 0 1px 2px rgba(40, 32, 12, 0.06), 0 16px 40px -18px rgba(40, 32, 12, 0.35); }
 .card-shot img { width: 100%; }
 .card-shot.crop-bottom { max-height: 250px; overflow: hidden; }
-.card-receipt { margin: 4px auto -60px; width: 78%; max-width: 280px; border-radius: 10px 10px 0 0; overflow: hidden; box-shadow: 0 24px 60px -20px rgba(40, 32, 12, 0.45); transform: rotate(-2deg); }
+.card-receipt { margin: 4px auto -60px; width: 78%; max-width: 280px; border-radius: 10px 10px 0 0; overflow: hidden; box-shadow: 0 24px 60px -20px rgba(40, 32, 12, 0.45); }
 .mini-list { list-style: none; margin: auto 0 0; padding: 0; display: grid; gap: 10px; }
 .mini-list li { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; background: var(--cream); font-size: 14px; color: var(--muted-l); }
 .mini-list em { margin-left: auto; font-style: normal; font-weight: 700; color: var(--text-l); }
@@ -181,8 +183,8 @@ p { margin: 0; }
 .ticks li::before { content: '✓'; position: absolute; left: 0; top: 1px; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 800; }
 .phones { position: relative; height: 620px; }
 .phone { position: absolute; margin: 0; width: 290px; border-radius: 38px; border: 10px solid #111; overflow: hidden; box-shadow: 0 40px 80px -30px rgba(30, 24, 8, 0.55); background: #111; }
-.phone:first-child { left: 8%; top: 0; z-index: 2; transform: rotate(-4deg); }
-.phone.back { right: 4%; top: 70px; transform: rotate(5deg); }
+.phone:first-child { left: 6%; top: 0; z-index: 2; }
+.phone.back { right: 4%; top: 80px; }
 
 /* ---------- AI ---------- */
 .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
@@ -267,12 +269,128 @@ p { margin: 0; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .footer p { max-width: 640px; }
 
-/* ---------- Motion ---------- */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-.reveal.in { opacity: 1; transform: none; }
+/* ---------- Motion ----------
+   Everything hidden-by-default is gated on html.js, so the page still reads if scripts fail. */
+:root { --spring: cubic-bezier(0.34, 1.56, 0.64, 1); --out: cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Scroll progress */
+.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }
+.nav { transition: background .3s, box-shadow .3s; }
+.nav.scrolled { background: rgba(11, 13, 11, 0.86); box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6); }
+
+/* Reveal: rise out of a soft blur, staggered by --i */
+/* Uses `translate` so hover `transform`s still compose on top; only the entrance is delayed. */
+.js .reveal { --rd: calc(var(--i, 0) * 90ms); opacity: 0; translate: 0 28px; filter: blur(6px); transition: opacity .9s var(--out) var(--rd), translate .9s var(--out) var(--rd), filter .9s var(--out) var(--rd), transform .5s var(--out), box-shadow .5s var(--out), border-color .3s; }
+.js .reveal.in { opacity: 1; translate: none; filter: none; }
+
+/* Chart fragments wipe up into place */
+.js .wipe { clip-path: inset(100% 0 0 0 round 20px); transition: clip-path 1.2s var(--out); transition-delay: calc(var(--i, 0) * 140ms); }
+.js .wipe img { scale: 1.08; transition: scale 1.6s var(--out); transition-delay: inherit; }
+.js .wipe.in { clip-path: inset(0 0 0 0 round 20px); }
+.js .wipe.in img { scale: 1; }
+
+/* Headings: each word rises from behind a mask */
+.w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.w > span { display: inline-block; }
+.js .split .w > span { transform: translateY(105%); transition: transform 1s var(--out); transition-delay: calc(var(--wi) * 55ms + var(--base, 0ms)); }
+.js .split.in .w > span { transform: none; }
+
+/* Hero intro, played on load */
+.js .intro { opacity: 0; transform: translateY(22px); }
+.js .loaded .intro { opacity: 1; transform: none; transition: opacity 1s var(--out), transform 1s var(--out); transition-delay: var(--d, 0ms); }
+.hero-visual > .shot { animation: rise 1.3s var(--out) backwards; animation-delay: var(--d, 0ms); animation-play-state: paused; }
+.hero-visual > .chip { animation: pop .8s var(--spring) backwards, bob 7s ease-in-out infinite; animation-delay: var(--d, 0ms), calc(var(--d, 0ms) + 0.8s); animation-play-state: paused; }
+.loaded .hero-visual > * { animation-play-state: running; }
+.hero-visual > * { translate: var(--tx, 0) var(--ty, 0); transition: translate .9s var(--out); }
+.shot-items { --d: 250ms; }
+.shot-phone { --d: 520ms; }
+.shot-cart { --d: 680ms; }
+.chip-token { --d: 1000ms; }
+.chip-pay { --d: 1250ms; }
+@keyframes rise { from { opacity: 0; transform: translateY(60px) scale(0.96); } }
+@keyframes pop { from { opacity: 0; scale: 0.5; } }
+@keyframes bob { 50% { transform: translateY(-9px); } }
+.hero-glow { animation: drift 16s ease-in-out infinite alternate; }
+@keyframes drift { to { transform: translate(-90px, 60px) scale(1.12); } }
+
+/* Live token flip */
+.chip-token b { display: inline-block; }
+.chip-token b.flip { animation: flip .6s var(--out); }
+@keyframes flip { 0% { transform: translateY(0); opacity: 1; } 45% { transform: translateY(-60%); opacity: 0; } 55% { transform: translateY(60%); opacity: 0; } 100% { transform: none; opacity: 1; } }
+.chip-pay .chip-ico { transition: background .5s; }
+.chip-ico.nagad { background: linear-gradient(135deg, #f7941d, #e4532b); }
+.chip-ico.card { background: linear-gradient(135deg, #3b4bd8, #1e2a8a); }
+.chip-ico.cash { background: linear-gradient(135deg, #22a35a, #126b3a); }
+.chip-pay > div { transition: opacity .35s, transform .35s var(--out); }
+.chip-pay.swap > div { opacity: 0; transform: translateY(8px); }
+.chip-pay::before { content: ''; position: absolute; inset: -1px; border-radius: inherit; border: 1px solid rgba(255, 138, 76, 0.7); opacity: 0; }
+.chip-pay.ping::before { animation: ping 1.1s var(--out); }
+@keyframes ping { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.18); } }
+
+/* Marquee strip */
+.marquee { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee ul { flex-wrap: nowrap; width: max-content; gap: 0; animation: marquee 32s linear infinite; }
+.marquee li { padding-right: 34px; white-space: nowrap; }
+.marquee:hover ul { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Cards: lift + cursor spotlight */
+.card, .bd, .plan, .steps li, .mod-col { transition: transform .5s var(--out), box-shadow .5s var(--out), border-color .3s; }
+.card::before, .bd::before, .mod-col::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 106, 31, 0.09), transparent 60%); opacity: 0; transition: opacity .4s; pointer-events: none; }
+.bd, .mod-col { position: relative; }
+.card:hover::before, .bd:hover::before, .mod-col:hover::before { opacity: 1; }
+@media (hover: hover) {
+    .card:hover, .bd:hover, .steps li:hover, .mod-col:hover { transform: translateY(-4px); box-shadow: 0 2px 4px rgba(40, 32, 12, 0.05), 0 34px 60px -28px rgba(40, 32, 12, 0.35); border-color: #d8cfbb; }
+    .plan:not(.featured):hover { transform: translateY(-6px); box-shadow: 0 34px 60px -28px rgba(40, 32, 12, 0.35); }
+    .card-shot img, .card-receipt img { transition: transform .8s var(--out); }
+    .card:hover .card-shot img { transform: scale(1.02); }
+    .card:hover .card-receipt img { transform: translateY(-14px); }
+    .bd:hover .bd-ico { transform: rotate(-8deg) scale(1.08); }
+}
+.bd-ico { transition: transform .5s var(--spring); }
+
+/* Accent button sheen */
+.btn-accent { position: relative; overflow: hidden; isolation: isolate; }
+.btn-accent::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%); transform: translateX(-120%); }
+.btn-accent:hover::after { transform: translateX(120%); transition: transform .9s var(--out); }
+.btn-accent:hover { transform: translateY(-1px); }
+
+/* Mini list + recipe rows cascade in with their card */
+.js .reveal .mini-list li, .js .reveal .recipe-row { opacity: 0; transform: translateX(-14px); transition: opacity .6s var(--out), transform .6s var(--out); transition-delay: calc(var(--k) * 110ms + 350ms); }
+.js .reveal.in .mini-list li, .js .reveal.in .recipe-row { opacity: 1; transform: none; }
+
+/* AI chat plays like a conversation */
+.js .chat .msg { opacity: 0; transform: translateY(14px) scale(0.97); transition: opacity .6s var(--out), transform .6s var(--spring); }
+.js .chat .msg.me { transform-origin: 100% 100%; }
+.js .chat .msg.bot { transform-origin: 0 100%; }
+.js .chat .msg.show { opacity: 1; transform: none; }
+.typing { align-self: flex-start; display: none; gap: 5px; padding: 14px 18px; border-radius: 20px 20px 20px 6px; background: var(--ink-3); border: 1px solid var(--line-d); }
+.typing.on { display: inline-flex; }
+.typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--muted-d); animation: dot 1s infinite ease-in-out; }
+.typing i:nth-child(2) { animation-delay: .15s; }
+.typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes dot { 0%, 80%, 100% { opacity: .3; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-4px); } }
+
+/* Phones drift at different speeds while scrolling */
+.phone { translate: 0 var(--sy, 0); will-change: translate; }
+
+/* Live module dots breathe */
+.mod-col li.live::before, .live-dot { animation: breathe 2.6s ease-in-out infinite; }
+@keyframes breathe { 0%, 100% { box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.35); } 50% { box-shadow: 0 0 0 5px rgba(21, 128, 61, 0); } }
+
+/* Hero CTA glow + section CTA glow breathe */
+.cta::before { animation: glow 9s ease-in-out infinite alternate; }
+@keyframes glow { to { opacity: .55; transform: scale(1.15); } }
+
+.price span { display: inline-block; transition: opacity .25s, transform .25s var(--out); }
+.price span.tick { opacity: 0; transform: translateY(-6px); }
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-    .reveal { opacity: 1; transform: none; }
+    .js .reveal, .js .intro, .js .chat .msg, .js .reveal .mini-list li, .js .reveal .recipe-row { opacity: 1; transform: none; translate: none; filter: none; }
+    .js .wipe { clip-path: none; }
+    .js .split .w > span { transform: none; }
+    .marquee ul { flex-wrap: wrap; width: auto; }
 }
 
 /* ---------- Responsive ---------- */
@@ -299,7 +417,7 @@ p { margin: 0; }
     .bento, .bd-grid, .modules, .steps, .plans { grid-template-columns: 1fr; }
     .card.span-2, .card.wide { grid-column: auto; }
     .hero-visual { height: auto; padding: 30px 0 70px; perspective: none; }
-    .shot-items { position: relative; left: 0; top: 0; width: 100%; transform: none; opacity: 1; animation: none; }
+    .hero-visual .shot-items { position: relative; left: 0; top: 0; width: 100%; }
     .shot-cart, .shot-phone { display: none; }
     .chip-pay { left: 12px; bottom: 16px; }
     .chip-token { left: auto; right: 12px; top: 0; }
@@ -310,5 +428,5 @@ p { margin: 0; }
     .lead { font-size: 17px; }
     .section { padding: 72px 0; }
     .card { padding: 24px; }
-    .card-shot { margin: 0 -24px -24px; }
+    .card-shot { margin: 0; }
 }
