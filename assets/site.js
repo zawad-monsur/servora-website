@@ -131,18 +131,17 @@ if (!reduce && token && pay) {
     }, 4200);
 }
 
-// Hero parallax follows the pointer (desktop only).
+// The 3D hero stage turns gently toward the pointer (desktop only).
 const visual = document.querySelector('.hero-visual');
 if (!reduce && finePointer && visual) {
-    const layers = [...visual.children].map((el) => ({ el, depth: el.classList.contains('chip') ? 22 : el.classList.contains('shot-items') ? 8 : 15 }));
-    document.querySelector('.hero').addEventListener('pointermove', (e) => {
-        const x = e.clientX / innerWidth - 0.5;
-        const y = e.clientY / innerHeight - 0.5;
-        layers.forEach(({ el, depth }) => {
-            el.style.setProperty('--tx', `${(-x * depth).toFixed(1)}px`);
-            el.style.setProperty('--ty', `${(-y * depth).toFixed(1)}px`);
-        });
+    const hero = document.querySelector('.hero');
+    hero.addEventListener('pointermove', (e) => {
+        if (!document.body.classList.contains('loaded')) return;
+        visual.classList.add('steer');
+        visual.style.setProperty('--ry', `${((e.clientX / innerWidth - 0.5) * 10).toFixed(2)}deg`);
+        visual.style.setProperty('--rx', `${((0.5 - e.clientY / innerHeight) * 7).toFixed(2)}deg`);
     });
+    hero.addEventListener('pointerleave', () => { visual.style.setProperty('--ry', '0deg'); visual.style.setProperty('--rx', '0deg'); });
 }
 
 // Cursor spotlight on cards
@@ -189,6 +188,8 @@ if (chat) {
 const nav = document.querySelector('.nav');
 const bar = document.querySelector('.progress');
 const phones = document.querySelector('.phones');
+const stage = document.querySelector('.insight-stage');
+const narrow = matchMedia('(max-width: 640px)');
 let ticking = false;
 const onScroll = () => {
     ticking = false;
@@ -202,6 +203,12 @@ const onScroll = () => {
             phones.children[0].style.setProperty('--sy', `${(t * -40).toFixed(1)}px`);
             phones.children[1].style.setProperty('--sy', `${(t * 30).toFixed(1)}px`);
         }
+    }
+    if (stage && !reduce && !narrow.matches) {
+        const r = stage.getBoundingClientRect();
+        // 22deg lean while it enters from below, upright once its top is in the upper 40% of the screen
+        const p = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight * 0.6)));
+        stage.style.setProperty('--tilt', `${(22 * (1 - p)).toFixed(2)}deg`);
     }
 };
 addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
