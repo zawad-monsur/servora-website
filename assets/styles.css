@@ -269,6 +269,39 @@ p { margin: 0; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .footer p { max-width: 640px; }
 
+/* ---------- What we do ---------- */
+.pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.pillar { position: relative; padding: 28px; border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line-l); }
+.pillar-num { font: 700 14px var(--display); color: var(--accent-ink); }
+.pillar h3 { font-size: 21px; letter-spacing: -0.015em; margin: 14px 0 8px; }
+.pillar p { color: var(--muted-l); font-size: 16px; }
+
+/* ---------- Feature rows (dine-in, cash) ---------- */
+.feature-split { display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: center; }
+.feature-split + .feature-split { margin-top: 72px; }
+.feature-split.reverse { grid-template-columns: 1fr 1.25fr; }
+.feature-split.reverse > :first-child { order: 2; }
+.feature-copy h3 { font-size: 26px; letter-spacing: -0.02em; line-height: 1.15; }
+.feature-copy .ticks { margin-top: 20px; }
+.feature-copy .ticks li { color: var(--muted-l); font-weight: 500; }
+.feature-title { font-size: clamp(32px, 3.8vw, 48px); line-height: 1.06; letter-spacing: -0.03em; margin: 14px 0 16px; }
+.shot-frame { margin: 0; border-radius: 22px; overflow: hidden; background: var(--paper); border: 1px solid var(--line-l); box-shadow: 0 2px 4px rgba(40, 32, 12, 0.05), 0 40px 80px -36px rgba(40, 32, 12, 0.4); }
+.shot-frame img { width: 100%; }
+.drawer-frame { margin: 0 auto; width: min(100%, 420px); border-radius: 24px; overflow: hidden; background: var(--paper); border: 1px solid var(--line-l); box-shadow: 0 2px 4px rgba(40, 32, 12, 0.05), 0 40px 80px -36px rgba(40, 32, 12, 0.45); }
+.drawer-frame img { width: 100%; }
+
+/* ---------- Why us ---------- */
+.compare { border-radius: var(--r-lg); overflow: hidden; background: var(--paper); border: 1px solid var(--line-l); box-shadow: var(--shadow-l); }
+.compare-row { display: grid; grid-template-columns: 0.8fr 1fr 1.2fr; gap: 16px; padding: 16px 24px; border-top: 1px solid var(--line-l); font-size: 15px; align-items: center; }
+.compare-row:first-child { border-top: 0; }
+.compare-row > :first-child { font-weight: 700; color: var(--text-l); }
+.compare-row > :nth-child(2) { color: var(--muted-l); }
+.compare-row > :nth-child(3) { color: var(--text-l); font-weight: 600; display: flex; gap: 10px; }
+.compare-row:not(.compare-head) > :nth-child(3)::before { content: '✓'; flex: none; display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11px; font-weight: 800; }
+.compare-head { background: var(--cream); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.compare-head > :nth-child(2) { color: var(--muted-l); }
+.compare-head > :nth-child(3) { color: var(--accent-ink); }
+
 /* ---------- Motion ----------
    Everything hidden-by-default is gated on html.js, so the page still reads if scripts fail. */
 :root { --spring: cubic-bezier(0.34, 1.56, 0.64, 1); --out: cubic-bezier(0.16, 1, 0.3, 1); }
@@ -430,13 +463,19 @@ p { margin: 0; }
     .card.wide { grid-column: span 2; grid-template-columns: 1fr; gap: 22px; }
     .card.tall { grid-row: auto; }
     .insight-stage { grid-template-columns: 1fr; }
+    .pillars { grid-template-columns: 1fr 1fr; }
+    .feature-split, .feature-split.reverse { grid-template-columns: 1fr; gap: 32px; }
+    .feature-split.reverse > :first-child { order: 0; }
     .ins-mix { grid-column: 1; grid-row: auto; max-width: 420px; }
     .section { padding: 88px 0; }
 }
 @media (max-width: 640px) {
     body { font-size: 16px; }
     .wrap { width: calc(100% - 32px); }
-    .bento, .bd-grid, .modules, .steps, .plans { grid-template-columns: 1fr; }
+    .bento, .bd-grid, .modules, .steps, .plans, .pillars { grid-template-columns: 1fr; }
+    .compare-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 18px; }
+    .compare-head { display: none; }
+    .compare-row > :nth-child(2)::before { content: 'Others: '; font-weight: 600; }
     .card.span-2, .card.wide { grid-column: auto; }
     .hero-visual { height: auto; padding: 30px 0 70px; perspective: none; }
     .hero-visual .shot-items { position: relative; left: 0; top: 0; width: 100%; }

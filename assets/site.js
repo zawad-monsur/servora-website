@@ -39,7 +39,7 @@ buttons.forEach((btn) =>
 );
 
 // Split headings into words that rise from a mask.
-document.querySelectorAll('.hero h1, .section-head h2, .qr-copy h2, .ai h2, .cta h2').forEach((h) => {
+document.querySelectorAll('.hero h1, .section-head h2, .qr-copy h2, .ai h2, .cta h2, .feature-title').forEach((h) => {
     const text = h.textContent.trim();
     h.setAttribute('aria-label', text);
     h.innerHTML = text.split(/\s+/).map((w, i) => `<span class="w" aria-hidden="true"><span style="--wi:${i}">${w}</span></span>`).join(' ');
