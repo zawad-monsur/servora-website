@@ -270,6 +270,17 @@ p { margin: 0; }
 .footer p { max-width: 640px; }
 
 /* ---------- What we do ---------- */
+/* What is a POS: definition plus the order flow */
+.explain { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; padding: 36px; margin-bottom: 20px; border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line-l); }
+.explain-def h3 { font-size: 24px; letter-spacing: -0.02em; margin: 0 0 10px; }
+.explain-def p { color: var(--muted-l); font-size: 16.5px; }
+.explain-def b { color: var(--text-l); }
+.flow { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.flow li { position: relative; display: flex; flex-direction: column; gap: 4px; padding: 18px 16px; border-radius: var(--r-md); background: var(--cream); }
+.flow li:not(:last-child)::after { content: '→'; position: absolute; right: -12px; top: 50%; translate: 0 -50%; z-index: 1; font-weight: 700; color: var(--accent); }
+.flow span { display: grid; place-items: center; width: 28px; height: 28px; margin-bottom: 6px; border-radius: 50%; background: var(--accent); color: #fff; font: 700 14px var(--display); }
+.flow b { font-size: 16px; }
+.flow small { color: var(--muted-l); font-size: 14px; line-height: 1.45; }
 .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .pillar { position: relative; padding: 28px; border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line-l); }
 .pillar-num { font: 700 14px var(--display); color: var(--accent-ink); }
@@ -464,6 +475,7 @@ p { margin: 0; }
     .card.tall { grid-row: auto; }
     .insight-stage { grid-template-columns: 1fr; }
     .pillars { grid-template-columns: 1fr 1fr; }
+    .explain { grid-template-columns: 1fr; gap: 24px; }
     .feature-split, .feature-split.reverse { grid-template-columns: 1fr; gap: 32px; }
     .feature-split.reverse > :first-child { order: 0; }
     .ins-mix { grid-column: 1; grid-row: auto; max-width: 420px; }
@@ -475,6 +487,9 @@ p { margin: 0; }
     .bento, .bd-grid, .modules, .steps, .plans, .pillars { grid-template-columns: 1fr; }
     .compare-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 18px; }
     .compare-head { display: none; }
+    .explain { padding: 24px; }
+    .flow { grid-template-columns: 1fr 1fr; }
+    .flow li::after { display: none; }
     .compare-row > :nth-child(2)::before { content: 'Others: '; font-weight: 600; }
     .card.span-2, .card.wide { grid-column: auto; }
     .hero-visual { height: auto; padding: 30px 0 70px; perspective: none; }

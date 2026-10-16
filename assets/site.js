@@ -63,13 +63,16 @@ const io = new IntersectionObserver(
     (entries) => entries.forEach((e) => {
         if (!e.isIntersecting) return;
         e.target.classList.add('in');
+        // Wipes are fully clipped until revealed, so the browser never reports them as visible: watch their container instead.
+        e.target.querySelectorAll(':scope > .wipe').forEach((w) => w.classList.add('in'));
         io.unobserve(e.target);
         e.target.dispatchEvent(new CustomEvent('revealed'));
     }),
     { rootMargin: '0px 0px -10% 0px', threshold: 0.12 },
 );
 const heroTitle = document.querySelector('.hero h1');
-document.querySelectorAll('.reveal, .wipe, .split, .chat, .recipe').forEach((el) => { if (el !== heroTitle) io.observe(el); });
+document.querySelectorAll('.reveal, .split, .chat, .recipe').forEach((el) => { if (el !== heroTitle) io.observe(el); });
+new Set([...document.querySelectorAll('.wipe')].map((w) => w.parentElement)).forEach((el) => io.observe(el));
 
 // Hero intro plays once fonts are ready, so headline words don't reflow mid-animation.
 heroTitle.style.setProperty('--base', '150ms');
