@@ -1,8 +1,5 @@
-// ---- Contact details: fill these in before going live. ----
-const CONTACT = {
-    whatsapp: '8801914001901',
-    email: 'zawadmonsur1@gmail.com',
-};
+// Contact details live in contact.js (shared with plan.html).
+const CONTACT = window.CONTACT || {};
 
 const wa = CONTACT.whatsapp
     ? `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hi ServoraPOS, I would like a demo for my restaurant.')}`
