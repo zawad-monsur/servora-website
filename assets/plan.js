@@ -50,18 +50,54 @@ const GROUPS = [
     {
         title: 'Coming soon',
         soon: true,
-        note: 'Tick what you’d use. It helps us decide what to build next, and we’ll tell you when it’s ready.',
-        items: [
-            { id: 'qr-order', name: 'QR table ordering', desc: 'Guests order from their table; orders land on the register.' },
-            { id: 'online', name: 'Online ordering site', desc: 'Your own pickup and delivery website, with no commission.' },
-            { id: 'delivery', name: 'Delivery & riders', desc: 'Delivery orders with address, charges and rider assignment.' },
-            { id: 'waiter', name: 'Waiter app', desc: 'Waiters take orders at the table from their phone.' },
-            { id: 'loyalty', name: 'Loyalty & personal offers', desc: 'Points, stamp cards and offers that bring regulars back.' },
-            { id: 'purchasing', name: 'Purchasing & suppliers', desc: 'Purchase orders, suppliers and supplier dues.' },
-            { id: 'ai', name: 'AI assistant & theft alerts', desc: 'Ask questions about your business; get alerts for unusual voids and discounts.' },
-            { id: 'offline', name: 'Offline mode', desc: 'Keep selling when the internet drops; everything syncs when it’s back.' },
-            { id: 'multibranch', name: 'Multi-branch control', desc: 'One menu with branch pricing, stock transfers and combined reports.' },
-            { id: 'vat', name: 'Official VAT reports', desc: 'Government VAT invoices and returns (Mushak 6.3 in Bangladesh).' },
+        note: 'Tick what you’d use. It costs nothing now; it tells us what to build first, and we’ll let you know when it’s ready.',
+        sections: [
+            ['Dine-in & service', [
+                ['waiter', 'Waiter app', 'Waiters take orders at the table from their phone.'],
+                ['qr-order', 'QR table ordering', 'Guests order from their table; orders land on the register.'],
+                ['display', 'Customer display', 'A second screen facing the guest with the live bill and a payment QR.'],
+                ['reservations', 'Reservations & waitlist', 'Bookings, a waitlist and an SMS when the table is ready.'],
+                ['foodcourt', 'Food court mode', 'Many vendors behind one QR, with separate tickets and settlement.'],
+            ]],
+            ['Delivery & online', [
+                ['delivery', 'Own delivery & riders', 'Delivery orders with address, charges and rider assignment.'],
+                ['online', 'Online ordering site', 'Your own pickup and delivery website, with no commission.'],
+                ['preorders', 'Pre-orders & Ramadan mode', 'Iftar boxes, time-slot pickups and bulk corporate orders.'],
+                ['gateway', 'Online payments', 'Card and mobile wallet checkout for online and QR orders.'],
+            ]],
+            ['Guests & marketing', [
+                ['promotions', 'Promotions engine', 'Coupons, happy hours, combos, buy-one-get-one and manager approval.'],
+                ['loyalty', 'Loyalty & stamp cards', 'Points, tiers and stamp cards for regulars.'],
+                ['offers', 'Guest insights & personal offers', 'Each guest’s habits, who is overdue, and one-to-one offers.'],
+                ['sms', 'SMS campaigns', 'Offers by SMS to guests who opted in.'],
+                ['ereceipts', 'Digital receipts', 'Send the receipt by SMS or WhatsApp.'],
+                ['feedback', 'Guest feedback', 'A rating QR on every receipt and a feedback inbox.'],
+                ['credit', 'Due ledger (baki khata)', 'Credit for regulars and companies, with due collection.'],
+            ]],
+            ['Menu & back office', [
+                ['dietary', 'Allergens & portions', 'Allergen and diet labels from recipes, and portion sizes on the menu.'],
+                ['swaps', 'Swaps & holds', '“No onion, extra cheese” at the register; stock and allergens follow.'],
+                ['purchasing', 'Purchasing & suppliers', 'Purchase orders, suppliers and supplier dues.'],
+                ['expenses', 'Expenses', 'Rent, salaries and bills, for the real profit.'],
+                ['payroll', 'Attendance & payroll', 'Clock in and out, hours and salary sheets.'],
+                ['accounting', 'Accounting', 'Daily sales, expenses and payments ready for your accountant.'],
+            ]],
+            ['Reports & AI', [
+                ['menu-eng', 'Menu engineering', 'Which dishes to promote, reprice or drop.'],
+                ['digest', 'Owner daily digest', 'Yesterday’s numbers on WhatsApp every morning.'],
+                ['benchmark', 'Area benchmarks', 'How you compare with similar restaurants nearby, anonymously.'],
+                ['ai', 'Ask your business (AI)', 'Ask questions in plain words and get answers from your data.'],
+                ['ai-guard', 'Theft & loss alerts (AI)', 'Alerts for unusual voids, discounts and cash shortages.'],
+                ['ai-concierge', 'AI menu for guests', '“Something spicy under ৳400” on the QR menu, skipping allergies.'],
+                ['ai-import', 'Menu from a photo (AI)', 'Photograph the printed menu; dishes and prices are filled in.'],
+                ['ai-forecast', 'Prep & stock forecast (AI)', 'What to prep and order for tomorrow.'],
+            ]],
+            ['Scale & compliance', [
+                ['offline', 'Offline mode', 'Keep selling when the internet drops; it syncs when it’s back.'],
+                ['multibranch', 'Multi-branch control', 'One menu with branch pricing, stock transfers and combined reports.'],
+                ['vat', 'Official VAT reports', 'Government VAT invoices and returns (Mushak 6.3 in Bangladesh).'],
+                ['api', 'API & webhooks', 'Connect your own apps and services.'],
+            ]],
         ],
     },
 ];
@@ -73,6 +109,8 @@ const PLANS = [
     { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'analytics', 'tables', 'kitchen', 'stations'], BDT: 3490, USD: 79 },
 ];
 
+// Roadmap sections are [title, [[id, name, desc]]] for brevity.
+GROUPS.filter((g) => g.sections).forEach((g) => (g.items = g.sections.flatMap(([, rows]) => rows.map(([id, name, desc]) => ({ id, name, desc })))));
 const ITEMS = Object.fromEntries(GROUPS.flatMap((g) => g.items.map((i) => [i.id, { ...i, soon: !!g.soon }])));
 const CONTACT = window.CONTACT || {};
 
@@ -105,17 +143,35 @@ function money(amount, currency = state.currency) {
 
 // ---- Render the feature list ----
 const featuresEl = document.getElementById('features');
-featuresEl.innerHTML = GROUPS.map(
-    (g) => `
-    <section class="fgroup${g.soon ? ' soon-group' : ''}">
-        <h2>${g.title}${g.soon ? ' <span class="soon">Roadmap</span>' : ''}</h2>
-        ${g.note ? `<p class="fgroup-note">${g.note}</p>` : ''}
+featuresEl.innerHTML = GROUPS.map((g) =>
+    g.soon
+        ? `
+    <section class="fgroup soon-group">
+        <h2>${g.title} <span class="soon">Roadmap</span></h2>
+        <p class="fgroup-note">${g.note}</p>
+        <div class="chip-sections">
+            ${g.sections
+                .map(
+                    ([title, rows]) => `
+                <div class="chip-section">
+                    <h3>${title}</h3>
+                    <div class="chips">
+                        ${rows.map(([id, name, desc]) => `<label class="fchip" title="${desc}"><input type="checkbox" value="${id}" ${state.picked.has(id) ? 'checked' : ''}><span>${name}</span></label>`).join('')}
+                    </div>
+                </div>`,
+                )
+                .join('')}
+        </div>
+    </section>`
+        : `
+    <section class="fgroup">
+        <h2>${g.title}</h2>
         ${g === GROUPS[0] ? baseCard() : ''}
         <div class="fcards">
             ${g.items
                 .map(
                     (i) => `
-                <label class="fcard${g.soon ? ' is-soon' : ''}">
+                <label class="fcard">
                     <input type="checkbox" value="${i.id}" ${state.picked.has(i.id) ? 'checked' : ''}>
                     <span class="fcheck" aria-hidden="true"></span>
                     <span class="fbody">
@@ -161,8 +217,7 @@ featuresEl.addEventListener('change', (e) => {
 document.querySelectorAll('[data-currency]').forEach((b) => b.addEventListener('click', () => ((state.currency = b.dataset.currency), update())));
 document.querySelectorAll('[data-billing]').forEach((b) => b.addEventListener('click', () => ((state.billing = b.dataset.billing), update())));
 document.querySelectorAll('[data-step]').forEach((b) =>
-    b.addEventListener('click', (e) => {
-        e.preventDefault();
+    b.addEventListener('click', () => {
         const key = b.dataset.step;
         state[key] = clamp(state[key] + Number(b.dataset.dir), 1, key === 'branches' ? 50 : 10);
         update();
@@ -210,16 +265,20 @@ function update() {
     const lines = document.getElementById('summary-lines');
     lines.innerHTML =
         q.lines.map((l) => `<li><span>${l.label}</span><span>${money(l.amount)}</span></li>`).join('') +
-        (q.bundle ? `<li class="bundle-line"><span>${q.bundle.name} bundle price</span><span>−${money(q.perBranch - q.bundle.cost)}</span></li>` : '') +
         (q.soon.length ? `<li class="soon-line"><span>Interested in: ${q.soon.map((id) => ITEMS[id].name).join(', ')}</span><span>Soon</span></li>` : '');
+
+    const breakdown = document.getElementById('breakdown');
+    breakdown.innerHTML =
+        `<div><span>Features${state.branches > 1 ? ', per branch' : ''}</span><span>${money(q.perBranch)}/mo</span></div>` +
+        (q.bundle ? `<div class="bundle-line"><span>${q.bundle.name} bundle saving</span><span>−${money(q.perBranch - q.bundle.cost)}/mo</span></div>` : '') +
+        (state.branches > 1 ? `<div><span>× ${state.branches} branches</span><span>${money(q.monthlyPerBranch * state.branches)}/mo</span></div>` : '') +
+        (state.billing === 'yearly' ? `<div><span>× 10 months (2 free)</span><span></span></div>` : '');
 
     const period = state.billing === 'yearly' ? '/year' : '/month';
     document.getElementById('total').innerHTML = `${money(q.total)}<small>${period}</small>`;
     document.getElementById('bar-total').textContent = `${money(q.total)}${period}`;
-    const per = [];
-    if (state.branches > 1) per.push(`${money(q.monthlyPerBranch)}/month per branch × ${state.branches} branches`);
-    if (state.billing === 'yearly') per.push(`2 months free · ${money(q.monthlyPerBranch * state.branches * 12)} if paid monthly`);
-    document.getElementById('total-sub').textContent = per.join(' · ') || 'Per branch, billed monthly. Cancel any time.';
+    document.getElementById('total-sub').textContent =
+        state.billing === 'yearly' ? `${money(q.monthlyPerBranch * state.branches * 12)} if paid monthly` : 'Billed monthly. Cancel any time.';
 
     const tip = document.getElementById('tip');
     if (q.bundle) {

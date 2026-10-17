@@ -38,13 +38,15 @@
 
 <main id="main">
     <section class="plan-hero">
-        <div class="wrap">
-            <p class="eyebrow"><span class="dot"></span> Build your plan</p>
-            <h1>Pay for what your restaurant actually uses.</h1>
-            <p class="lead">Tick the features you want and your price updates as you go. Prices are per branch. Change your plan any time.</p>
+        <div class="wrap plan-hero-inner">
+            <div class="plan-hero-text">
+                <p class="eyebrow"><span class="dot"></span> Build your plan</p>
+                <h1>Pay for what your restaurant actually uses.</h1>
+                <p class="lead">Tick the features you want; the price updates as you go. Per branch, change any time.</p>
+            </div>
             <div class="plan-controls">
                 <div class="seg" role="radiogroup" aria-label="Currency">
-                    <button type="button" role="radio" data-currency="BDT" aria-checked="true">৳ Taka <small>Bangladesh</small></button>
+                    <button type="button" role="radio" data-currency="BDT" aria-checked="true"><span class="cur">৳</span> Taka <small>Bangladesh</small></button>
                     <button type="button" role="radio" data-currency="USD" aria-checked="false">$ US dollar <small>Other countries</small></button>
                 </div>
                 <div class="seg" role="radiogroup" aria-label="Billing period">
@@ -65,16 +67,17 @@
                 <div class="summary-card">
                     <h2 id="summary-title">Your plan</h2>
                     <div class="steppers">
-                        <label class="stepper">
+                        <div class="stepper">
                             <span>Branches</span>
                             <span class="stepper-ctl"><button type="button" data-step="branches" data-dir="-1" aria-label="One branch fewer">−</button><output id="branches">1</output><button type="button" data-step="branches" data-dir="1" aria-label="One more branch">+</button></span>
-                        </label>
-                        <label class="stepper">
+                        </div>
+                        <div class="stepper">
                             <span>Registers per branch</span>
                             <span class="stepper-ctl"><button type="button" data-step="registers" data-dir="-1" aria-label="One register fewer">−</button><output id="registers">1</output><button type="button" data-step="registers" data-dir="1" aria-label="One more register">+</button></span>
-                        </label>
+                        </div>
                     </div>
                     <ul class="summary-lines" id="summary-lines"></ul>
+                    <div class="breakdown" id="breakdown"></div>
                     <div class="summary-total">
                         <span>Total</span>
                         <strong id="total">—</strong>
