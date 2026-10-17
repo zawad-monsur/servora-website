@@ -5,9 +5,9 @@ const CONTACT = {
 };
 
 const wa = CONTACT.whatsapp
-    ? `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hi Servora, I would like a demo for my restaurant.')}`
+    ? `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hi ServoraPOS, I would like a demo for my restaurant.')}`
     : '#contact';
-const mail = CONTACT.email ? `mailto:${CONTACT.email}?subject=${encodeURIComponent('Servora demo')}` : '#contact';
+const mail = CONTACT.email ? `mailto:${CONTACT.email}?subject=${encodeURIComponent('ServoraPOS demo')}` : '#contact';
 
 document.getElementById('cta-whatsapp').href = wa;
 document.getElementById('cta-email').href = mail;
