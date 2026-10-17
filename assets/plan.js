@@ -54,7 +54,8 @@ const GROUPS = [
         sections: [
             ['Dine-in & service', [
                 ['waiter', 'Waiter app', 'Waiters take orders at the table from their phone.'],
-                ['qr-order', 'QR table ordering', 'Guests order from their table; orders land on the register.'],
+                ['qr-order', 'Order from the QR menu', 'Guests scan, pick dishes and send the order from their table; it lands on the register and the kitchen screen.'],
+                ['qr-pay', 'Pay from the QR menu', 'Guests pay the bill on their phone (bKash, Nagad or card where available); the table is marked paid on the register.'],
                 ['display', 'Customer display', 'A second screen facing the guest with the live bill and a payment QR.'],
                 ['reservations', 'Reservations & waitlist', 'Bookings, a waitlist and an SMS when the table is ready.'],
                 ['foodcourt', 'Food court mode', 'Many vendors behind one QR, with separate tickets and settlement.'],
@@ -63,7 +64,7 @@ const GROUPS = [
                 ['delivery', 'Own delivery & riders', 'Delivery orders with address, charges and rider assignment.'],
                 ['online', 'Online ordering site', 'Your own pickup and delivery website, with no commission.'],
                 ['preorders', 'Pre-orders & Ramadan mode', 'Iftar boxes, time-slot pickups and bulk corporate orders.'],
-                ['gateway', 'Online payments', 'Card and mobile wallet checkout for online and QR orders.'],
+                ['gateway', 'Online payments', 'Card and mobile wallet checkout for your online ordering site.'],
             ]],
             ['Guests & marketing', [
                 ['promotions', 'Promotions engine', 'Coupons, happy hours, combos, buy-one-get-one and manager approval.'],
