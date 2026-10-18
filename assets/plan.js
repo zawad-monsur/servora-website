@@ -39,6 +39,7 @@ const GROUPS = [
         items: [
             { id: 'customers', name: 'Customers', desc: 'Phone-first guest records with visits and spend.', BDT: 250, USD: 5 },
             { id: 'qr', name: 'QR digital menu', desc: 'A live mobile menu with photos, in two languages, and a QR code per table.', BDT: 250, USD: 5 },
+            { id: 'feedback', name: 'Guest feedback', desc: 'A “Rate your visit” QR on every receipt and the menu; ratings, comments and follow-up in one inbox.', BDT: 150, USD: 3 },
         ],
     },
     {
@@ -72,7 +73,6 @@ const GROUPS = [
                 ['offers', 'Guest insights & personal offers', 'Each guest’s habits, who is overdue, and one-to-one offers.'],
                 ['sms', 'SMS campaigns', 'Offers by SMS to guests who opted in.'],
                 ['ereceipts', 'Digital receipts', 'Send the receipt by SMS or WhatsApp.'],
-                ['feedback', 'Guest feedback', 'A rating QR on every receipt and a feedback inbox.'],
                 ['credit', 'Due ledger (baki khata)', 'Credit for regulars and companies, with due collection.'],
             ]],
             ['Menu & back office', [
@@ -106,8 +106,8 @@ const GROUPS = [
 // The bundles on the home page. A bundle is suggested when it covers the selection for less.
 const PLANS = [
     { name: 'Lite', registers: 1, includes: ['discounts'], BDT: 990, USD: 22 },
-    { name: 'Growth', registers: 2, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'analytics'], BDT: 1990, USD: 45 },
-    { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'analytics', 'tables', 'kitchen', 'stations'], BDT: 3490, USD: 79 },
+    { name: 'Growth', registers: 2, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'feedback', 'analytics'], BDT: 1990, USD: 45 },
+    { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'feedback', 'analytics', 'tables', 'kitchen', 'stations'], BDT: 3490, USD: 79 },
 ];
 
 // Roadmap sections are [title, [[id, name, desc]]] for brevity.
