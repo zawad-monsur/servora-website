@@ -23,7 +23,7 @@ const GROUPS = [
         title: 'Dine-in & kitchen',
         items: [
             { id: 'tables', name: 'Table floor plan', desc: 'Draw your own floors; see free and busy tables; move, merge and split bills.', BDT: 400, USD: 8 },
-            { id: 'kitchen', name: 'Kitchen screen', desc: 'Orders on a kitchen screen with timers. Only new items are sent when a table orders more.', BDT: 400, USD: 8 },
+            { id: 'kitchen', name: 'Kitchen screen', desc: 'Orders on a kitchen screen with timers; guests see live status (received, preparing, ready) on their phone.', BDT: 400, USD: 8 },
             { id: 'stations', name: 'Kitchen & bar stations', desc: 'Drinks to the bar, food to the kitchen: each station gets its own screen and printer.', BDT: 200, USD: 4 },
         ],
     },
