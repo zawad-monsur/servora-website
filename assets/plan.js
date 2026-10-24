@@ -16,6 +16,7 @@ const GROUPS = [
         items: [
             { id: 'discounts', name: 'Discounts', desc: 'Preset and custom discounts with limits and a reason on every one.', BDT: 150, USD: 3 },
             { id: 'split', name: 'Split payments', desc: 'Pay one bill several ways, like part cash and part card or mobile wallet.', BDT: 100, USD: 2 },
+            { id: 'gift', name: 'Gift cards', desc: 'Sell gift cards with a balance; guests spend them at the register, and the drawer still adds up.', BDT: 150, USD: 3 },
             { id: 'shifts', name: 'Shifts & cash drawer', desc: 'Opening cash, pay-ins and pay-outs, a blind count at close and shortages per cashier.', BDT: 250, USD: 5 },
         ],
     },
@@ -101,8 +102,8 @@ const GROUPS = [
 // The bundles on the home page. A bundle is suggested when it covers the selection for less.
 const PLANS = [
     { name: 'Lite', registers: 1, includes: ['discounts'], BDT: 990, USD: 22 },
-    { name: 'Growth', registers: 2, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'dietary', 'feedback', 'analytics'], BDT: 1990, USD: 45 },
-    { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'qr-order', 'dietary', 'feedback', 'analytics', 'tables', 'kitchen', 'stations', 'pickup'], BDT: 3490, USD: 79 },
+    { name: 'Growth', registers: 2, includes: ['discounts', 'split', 'gift', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'dietary', 'feedback', 'analytics'], BDT: 1990, USD: 45 },
+    { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'gift', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'qr-order', 'dietary', 'feedback', 'analytics', 'tables', 'kitchen', 'stations', 'pickup'], BDT: 3490, USD: 79 },
 ];
 
 // Roadmap sections are [title, [[id, name, desc]]] for brevity.
