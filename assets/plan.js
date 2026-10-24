@@ -39,6 +39,7 @@ const GROUPS = [
         items: [
             { id: 'customers', name: 'Customers', desc: 'Phone-first guest records with visits and spend.', BDT: 250, USD: 5 },
             { id: 'qr', name: 'QR digital menu', desc: 'A live mobile menu with photos, in two languages, and a QR code per table.', BDT: 250, USD: 5 },
+            { id: 'qr-order', name: 'Order from the QR menu', desc: 'Guests order from their table; staff accept it on the register and it goes to the kitchen.', BDT: 300, USD: 6, requires: ['qr'] },
             { id: 'feedback', name: 'Guest feedback', desc: 'A “Rate your visit” QR on every receipt and the menu; ratings, comments and follow-up in one inbox.', BDT: 150, USD: 3 },
         ],
     },
@@ -55,7 +56,6 @@ const GROUPS = [
         sections: [
             ['Dine-in & service', [
                 ['waiter', 'Waiter app', 'Waiters take orders at the table from their phone.'],
-                ['qr-order', 'Order from the QR menu', 'Guests scan, pick dishes and send the order from their table; it lands on the register and the kitchen screen.'],
                 ['qr-pay', 'Pay from the QR menu', 'Guests pay the bill on their phone (bKash, Nagad or card where available); the table is marked paid on the register.'],
                 ['pickup', 'Pickup screen', 'A TV showing token numbers as orders become ready.'],
                 ['display', 'Customer display', 'A second screen facing the guest with the live bill and a payment QR.'],
@@ -102,7 +102,7 @@ const GROUPS = [
 const PLANS = [
     { name: 'Lite', registers: 1, includes: ['discounts'], BDT: 990, USD: 22 },
     { name: 'Growth', registers: 2, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'feedback', 'analytics'], BDT: 1990, USD: 45 },
-    { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'feedback', 'analytics', 'tables', 'kitchen', 'stations'], BDT: 3490, USD: 79 },
+    { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'qr-order', 'feedback', 'analytics', 'tables', 'kitchen', 'stations'], BDT: 3490, USD: 79 },
 ];
 
 // Roadmap sections are [title, [[id, name, desc]]] for brevity.
@@ -126,6 +126,8 @@ const state = {
     registers: clamp(Number(params.get('r')) || 1, 1, 10),
     picked: new Set((params.get('f') ?? 'discounts,shifts').split(',').filter((id) => ITEMS[id])),
 };
+// A shared link may name a feature without the one it needs.
+[...state.picked].forEach((id) => (ITEMS[id].requires ?? []).forEach((r) => state.picked.add(r)));
 
 function clamp(n, lo, hi) {
     return Math.min(hi, Math.max(lo, Math.round(n)));
