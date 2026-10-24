@@ -1,26 +1,44 @@
-// Contact details live in contact.js (shared with plan.html).
+// Shared by every page. Contact details live in contact.js.
+// Wrapped in a block so its names never clash with page scripts like plan.js.
+{
 const CONTACT = window.CONTACT || {};
 
-const wa = CONTACT.whatsapp
-    ? `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent('Hi ServoraPOS, I would like a demo for my restaurant.')}`
-    : '#contact';
-const mail = CONTACT.email ? `mailto:${CONTACT.email}?subject=${encodeURIComponent('ServoraPOS demo')}` : '#contact';
+const whatsapp = (text) => (CONTACT.whatsapp ? `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}` : '#contact');
+const external = (a, href) => {
+    a.href = href;
+    if (href.startsWith('http')) { a.target = '_blank'; a.rel = 'noopener'; }
+};
 
-document.getElementById('cta-whatsapp').href = wa;
-document.getElementById('cta-email').href = mail;
-if (CONTACT.whatsapp) {
-    document.querySelectorAll('[data-cta]').forEach((a) => { a.href = wa; a.target = '_blank'; a.rel = 'noopener'; });
-    document.getElementById('cta-whatsapp').target = '_blank';
+// Demo and "talk to us" buttons open WhatsApp; email buttons open the mail app.
+document.querySelectorAll('[data-cta], [data-contact]').forEach((a) => external(a, whatsapp('Hi ClochePOS, I would like a demo for my restaurant.')));
+if (CONTACT.email) {
+    document.querySelectorAll('[data-email]').forEach((a) => { a.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent('ClochePOS')}`; });
 }
+// Free trial goes to sign-up once it is live (CONTACT.trial); until then it asks on WhatsApp.
+document.querySelectorAll('[data-trial]').forEach((a) => {
+    if (CONTACT.trial) a.href = CONTACT.trial;
+    else external(a, whatsapp('Hi ClochePOS, I would like to start a free trial for my restaurant.'));
+});
 
-document.getElementById('year').textContent = new Date().getFullYear();
+const year = document.getElementById('year');
+if (year) year.textContent = new Date().getFullYear();
+
+// Phone menu
+const toggle = document.querySelector('.nav-toggle');
+if (toggle) {
+    const header = toggle.closest('.nav');
+    const setOpen = (open) => { header.classList.toggle('open', open); toggle.setAttribute('aria-expanded', String(open)); };
+    toggle.addEventListener('click', () => setOpen(!header.classList.contains('open')));
+    header.querySelectorAll('.nav-links a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+}
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // Billing toggle (prices tick over instead of jumping)
-const buttons = document.querySelectorAll('[data-billing]');
+const buttons = document.querySelectorAll('.billing [data-billing]');
 buttons.forEach((btn) =>
     btn.addEventListener('click', () => {
         const yearly = btn.dataset.billing === 'yearly';
@@ -36,7 +54,7 @@ buttons.forEach((btn) =>
 );
 
 // Split headings into words that rise from a mask.
-document.querySelectorAll('.hero h1, .section-head h2, .qr-copy h2, .ai h2, .cta h2, .feature-title').forEach((h) => {
+document.querySelectorAll('.hero h1, .page-hero h1, .section-head h2, .qr-copy h2, .ai h2, .cta h2, .feature-title').forEach((h) => {
     const text = h.textContent.trim();
     h.setAttribute('aria-label', text);
     h.innerHTML = text.split(/\s+/).map((w, i) => `<span class="w" aria-hidden="true"><span style="--wi:${i}">${w}</span></span>`).join(' ');
@@ -72,8 +90,8 @@ document.querySelectorAll('.reveal, .split, .chat, .recipe').forEach((el) => { i
 new Set([...document.querySelectorAll('.wipe')].map((w) => w.parentElement)).forEach((el) => io.observe(el));
 
 // Hero intro plays once fonts are ready, so headline words don't reflow mid-animation.
-heroTitle.style.setProperty('--base', '150ms');
-const startIntro = () => requestAnimationFrame(() => { document.body.classList.add('loaded'); heroTitle.classList.add('in'); });
+heroTitle?.style.setProperty('--base', '150ms');
+const startIntro = () => requestAnimationFrame(() => { document.body.classList.add('loaded'); heroTitle?.classList.add('in'); });
 Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), wait(900)]).then(startIntro);
 
 // Count-ups
@@ -194,8 +212,8 @@ let ticking = false;
 const onScroll = () => {
     ticking = false;
     const max = document.documentElement.scrollHeight - innerHeight;
-    bar.style.setProperty('--p', String(max > 0 ? scrollY / max : 0));
-    nav.classList.toggle('scrolled', scrollY > 8);
+    bar?.style.setProperty('--p', String(max > 0 ? scrollY / max : 0));
+    nav?.classList.toggle('scrolled', scrollY > 8);
     if (phones && !reduce) {
         const r = phones.getBoundingClientRect();
         const t = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; // ~-1..1 around the viewport centre
@@ -219,3 +237,20 @@ document.querySelectorAll('.protect').forEach((el) => {
     el.addEventListener('contextmenu', (e) => e.preventDefault());
     el.addEventListener('dragstart', (e) => e.preventDefault());
 });
+
+// Jump-bar: highlight the section in view and keep its link visible.
+const jumps = [...document.querySelectorAll('.jumpbar a[href^="#"]')];
+if (jumps.length) {
+    const byId = new Map(jumps.map((a) => [a.getAttribute('href').slice(1), a]));
+    const spy = new IntersectionObserver(
+        (entries) => entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const link = byId.get(e.target.id);
+            jumps.forEach((a) => a.classList.toggle('active', a === link));
+            link?.parentElement.scrollTo({ left: link.offsetLeft - 16, behavior: reduce ? 'auto' : 'smooth' });
+        }),
+        { rootMargin: '-40% 0px -55% 0px' },
+    );
+    byId.forEach((_, id) => { const el = document.getElementById(id); if (el) spy.observe(el); });
+}
+}

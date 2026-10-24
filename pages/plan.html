@@ -1,0 +1,112 @@
+---
+title: Build your plan · ClochePOS
+description: Pick the ClochePOS features your restaurant needs and see the price instantly, in taka or US dollars. Not quite right? Tell us and we will shape a plan with you.
+nav: plan
+css: assets/plan.css
+js: assets/plan.js
+body: plan-page
+cta: no
+---
+    <section class="plan-hero">
+        <div class="wrap plan-hero-inner">
+            <div class="plan-hero-text">
+                <p class="eyebrow"><span class="dot"></span> Build your plan</p>
+                <h1>Pay for what your restaurant actually uses.</h1>
+                <p class="lead">Tick the features you want; the price updates as you go. Per branch, change any time.</p>
+            </div>
+            <div class="plan-controls">
+                <div class="seg" role="radiogroup" aria-label="Currency">
+                    <button type="button" role="radio" data-currency="BDT" aria-checked="true"><span class="cur">৳</span> Taka <small>Bangladesh</small></button>
+                    <button type="button" role="radio" data-currency="USD" aria-checked="false">$ US dollar <small>Other countries</small></button>
+                </div>
+                <div class="seg" role="radiogroup" aria-label="Billing period">
+                    <button type="button" role="radio" data-billing="monthly" aria-checked="true">Monthly</button>
+                    <button type="button" role="radio" data-billing="yearly" aria-checked="false">Yearly <small>2 months free</small></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="plan-body">
+        <div class="wrap plan-grid">
+            <div class="plan-features" id="features" aria-label="Features">
+                <!-- Filled by plan.js -->
+            </div>
+
+            <aside class="plan-summary" aria-labelledby="summary-title" aria-live="polite">
+                <div class="summary-card">
+                    <h2 id="summary-title">Your plan</h2>
+                    <div class="steppers">
+                        <div class="stepper">
+                            <span>Branches</span>
+                            <span class="stepper-ctl"><button type="button" data-step="branches" data-dir="-1" aria-label="One branch fewer">−</button><output id="branches">1</output><button type="button" data-step="branches" data-dir="1" aria-label="One more branch">+</button></span>
+                        </div>
+                        <div class="stepper">
+                            <span>Registers per branch</span>
+                            <span class="stepper-ctl"><button type="button" data-step="registers" data-dir="-1" aria-label="One register fewer">−</button><output id="registers">1</output><button type="button" data-step="registers" data-dir="1" aria-label="One more register">+</button></span>
+                        </div>
+                    </div>
+                    <ul class="summary-lines" id="summary-lines"></ul>
+                    <div class="breakdown" id="breakdown"></div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <strong id="total">—</strong>
+                    </div>
+                    <p class="summary-sub" id="total-sub"></p>
+                    <div class="summary-tip" id="tip" hidden></div>
+                    <a class="btn btn-accent summary-cta" id="cta-plan" href="#talk" target="_blank" rel="noopener">Get this plan</a>
+                    <a class="summary-link" href="#talk">Price or features don’t fit? Tell us →</a>
+                </div>
+                <p class="summary-note" id="setup-note"></p>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Mobile: total stays in view -->
+    <div class="plan-bar" id="plan-bar">
+        <div><small>Your plan</small><strong id="bar-total">—</strong></div>
+        <a class="btn btn-accent btn-sm" href="#summary-title">See summary</a>
+    </div>
+
+    <section class="section light" id="talk">
+        <div class="wrap talk-grid">
+            <div>
+                <p class="eyebrow ink">Not quite right?</p>
+                <h2>Tell us what you need. We’ll shape a plan with you.</h2>
+                <p class="lead ink">Price above your budget, a feature that isn’t listed, several branches or a setup that’s a bit different? Write to us. Every restaurant is different, and we reply within a day.</p>
+                <ul class="talk-points">
+                    <li>Restaurants in Bangladesh and abroad</li>
+                    <li>Your currency, tax and local payment methods</li>
+                    <li>Discounts for yearly plans, groups and early partners</li>
+                </ul>
+            </div>
+            <form class="talk-form" id="talk-form" novalidate>
+                <fieldset class="reasons">
+                    <legend>What doesn’t fit?</legend>
+                    <label><input type="checkbox" name="reason" value="The price is above my budget"> The price is above my budget</label>
+                    <label><input type="checkbox" name="reason" value="I need a feature that isn’t listed"> I need a feature that isn’t listed</label>
+                    <label><input type="checkbox" name="reason" value="My setup is different (branches, franchise, cloud kitchen…)"> My setup is different</label>
+                    <label><input type="checkbox" name="reason" value="I just have questions"> I just have questions</label>
+                </fieldset>
+                <div class="field-row">
+                    <label class="field"><span>Your name *</span><input name="name" autocomplete="name" required></label>
+                    <label class="field"><span>Restaurant</span><input name="business" autocomplete="organization"></label>
+                </div>
+                <div class="field-row">
+                    <label class="field"><span>Country &amp; city</span><input name="location" id="location" autocomplete="country-name"></label>
+                    <label class="field"><span>Phone / WhatsApp</span><input name="phone" type="tel" autocomplete="tel"></label>
+                </div>
+                <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email"></label>
+                <label class="field"><span>Tell us more</span><textarea name="message" rows="4" placeholder="e.g. We have 2 branches and a budget of around ৳2,500 a month, and we need a waiter app."></textarea></label>
+                <label class="attach"><input type="checkbox" name="attach" checked> Include the plan I built above</label>
+                <p class="form-error" id="form-error" role="alert" hidden></p>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-accent" data-via="whatsapp">Send on WhatsApp</button>
+                    <button type="submit" class="btn btn-outline" data-via="email">Send by email</button>
+                </div>
+                <p class="form-note">This opens WhatsApp or your email app with your message ready to send. Nothing is sent until you press send there.</p>
+            </form>
+        </div>
+    </section>
+
+    <p class="wrap plan-fineprint">Prices exclude any local taxes. Features marked “coming soon” are on our roadmap; tick them to tell us you’re interested.</p>

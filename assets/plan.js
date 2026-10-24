@@ -3,7 +3,7 @@
 // Monthly price per branch. BDT for Bangladesh, USD for everyone else.
 const BASE = {
     name: 'Register & essentials',
-    desc: 'Fast billing, menu with sizes and add-ons, dine-in, takeaway and mixed orders, receipts in your language, daily tokens, VAT and extra charges, silent printing and a daily sales dashboard.',
+    desc: 'Fast billing, menu with sizes and add-ons, dine-in, takeaway and mixed orders, receipts in your language, daily tokens, VAT and extra charges, silent printing, a daily sales dashboard, and an offline register with live updates between screens.',
     BDT: 840,
     USD: 19,
 };
@@ -57,15 +57,11 @@ const GROUPS = [
                 ['waiter', 'Waiter app', 'Waiters take orders at the table from their phone.'],
                 ['qr-order', 'Order from the QR menu', 'Guests scan, pick dishes and send the order from their table; it lands on the register and the kitchen screen.'],
                 ['qr-pay', 'Pay from the QR menu', 'Guests pay the bill on their phone (bKash, Nagad or card where available); the table is marked paid on the register.'],
+                ['pickup', 'Pickup screen', 'A TV showing token numbers as orders become ready.'],
                 ['display', 'Customer display', 'A second screen facing the guest with the live bill and a payment QR.'],
+                ['preorders', 'Pre-orders & Ramadan mode', 'Iftar boxes, time-slot pickups and bulk corporate orders.'],
                 ['reservations', 'Reservations & waitlist', 'Bookings, a waitlist and an SMS when the table is ready.'],
                 ['foodcourt', 'Food court mode', 'Many vendors behind one QR, with separate tickets and settlement.'],
-            ]],
-            ['Delivery & online', [
-                ['delivery', 'Own delivery & riders', 'Delivery orders with address, charges and rider assignment.'],
-                ['online', 'Online ordering site', 'Your own pickup and delivery website, with no commission.'],
-                ['preorders', 'Pre-orders & Ramadan mode', 'Iftar boxes, time-slot pickups and bulk corporate orders.'],
-                ['gateway', 'Online payments', 'Card and mobile wallet checkout for your online ordering site.'],
             ]],
             ['Guests & marketing', [
                 ['promotions', 'Promotions engine', 'Coupons, happy hours, combos, buy-one-get-one and manager approval.'],
@@ -94,7 +90,6 @@ const GROUPS = [
                 ['ai-forecast', 'Prep & stock forecast (AI)', 'What to prep and order for tomorrow.'],
             ]],
             ['Scale & compliance', [
-                ['offline', 'Offline mode', 'Keep selling when the internet drops; it syncs when it’s back.'],
                 ['multibranch', 'Multi-branch control', 'One menu with branch pricing, stock transfers and combined reports.'],
                 ['vat', 'Official VAT reports', 'Government VAT invoices and returns (Mushak 6.3 in Bangladesh).'],
                 ['api', 'API & webhooks', 'Connect your own apps and services.'],
@@ -297,7 +292,7 @@ function update() {
             ? `On-site setup and staff training: ${money(SETUP.BDT, 'BDT')} once, free on yearly plans. We enter your menu for you. 14 days free to try.`
             : `Online setup and staff training: ${money(SETUP.USD, 'USD')} once, free on yearly plans. Your currency, tax and payment methods are set up for your country. 14 days free to try.`;
 
-    document.getElementById('cta-plan').href = whatsapp(`Hi ServoraPOS, I'd like this plan for my restaurant:\n\n${planText(q)}`);
+    document.getElementById('cta-plan').href = whatsapp(`Hi ClochePOS, I'd like this plan for my restaurant:\n\n${planText(q)}`);
 
     const url = new URL(location.href);
     url.search = new URLSearchParams({ c: q.c, b: state.billing, br: state.branches, r: state.registers, f: [...state.picked].join(',') }).toString();
@@ -355,7 +350,7 @@ form.addEventListener('submit', (e) => {
     if (problem) return;
 
     const body = [
-        `Hi ServoraPOS, I'm ${name}${data.get('business') ? ` from ${data.get('business')}` : ''}${data.get('location') ? ` (${data.get('location')})` : ''}.`,
+        `Hi ClochePOS, I'm ${name}${data.get('business') ? ` from ${data.get('business')}` : ''}${data.get('location') ? ` (${data.get('location')})` : ''}.`,
         reasons.length ? `\n${reasons.map((r) => `• ${r}`).join('\n')}` : null,
         message ? `\n${message}` : null,
         data.get('attach') ? `\nThe plan I built:\n${planText(quote())}` : null,
@@ -365,7 +360,7 @@ form.addEventListener('submit', (e) => {
         .join('\n');
 
     if (via === 'email' && CONTACT.email) {
-        location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(`ServoraPOS plan: ${name}`)}&body=${encodeURIComponent(body)}`;
+        location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(`ClochePOS plan: ${name}`)}&body=${encodeURIComponent(body)}`;
     } else {
         window.open(whatsapp(body), '_blank', 'noopener');
     }

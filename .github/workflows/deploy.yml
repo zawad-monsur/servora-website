@@ -1,0 +1,56 @@
+name: Website
+
+# Checks that the built pages match pages/ (run `python build.py` before committing),
+# then puts `main` live on clochepos.com: the files go to ~/public_html over encrypted FTP.
+#
+# Off until the hosting is ready: repository variable DEPLOY_ENABLED=true.
+# Secrets: FTP_SERVER (e.g. clochepos.com or the server IP), FTP_USERNAME, FTP_PASSWORD
+# for an FTP account whose folder is public_html.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: website-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Built pages are up to date
+        run: |
+          python build.py
+          git diff --exit-code || { echo "::error::Run python build.py and commit the result."; exit 1; }
+
+  deploy:
+    needs: check
+    if: vars.DEPLOY_ENABLED == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload over FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            pages/**
+            build.py
+            README.md
+            .nojekyll

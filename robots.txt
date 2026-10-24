@@ -1,4 +1,6 @@
 # Search engines are welcome.
+Sitemap: https://clochepos.com/sitemap.xml
+
 User-agent: *
 Allow: /
 Disallow: /assets/img/

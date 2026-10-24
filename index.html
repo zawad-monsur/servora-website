@@ -3,12 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ServoraPOS · The restaurant operating system</title>
-    <meta name="description" content="ServoraPOS is a complete restaurant management system: fast billing with bKash & Nagad, Bangla receipts, a live table floor plan, kitchen screen, cash-drawer control, stock and food cost, QR menus and clear reports. Pay only for the modules you use.">
+    <title>ClochePOS · The calm, fast restaurant system</title>
+    <meta name="description" content="ClochePOS runs your restaurant in one system: fast billing with bKash and Nagad, Bangla receipts, tables and kitchen screen, cash control, stock and clear reports. Keeps selling offline. 14 days free.">
     <meta name="theme-color" content="#0b0d0b">
-    <meta property="og:title" content="ServoraPOS · The restaurant operating system">
-    <meta property="og:description" content="Billing, tables, kitchen, cash control, stock and reports in one calm system. Made in Dhaka.">
+    <link rel="canonical" href="https://clochepos.com/">
+    <meta property="og:title" content="ClochePOS · The calm, fast restaurant system">
+    <meta property="og:description" content="ClochePOS runs your restaurant in one system: fast billing with bKash and Nagad, Bangla receipts, tables and kitchen screen, cash control, stock and clear reports. Keeps selling offline. 14 days free.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clochepos.com/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,46 +21,49 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<!-- Built by build.py from pages/index.html: edit that file, not this one. -->
 <header class="nav">
     <div class="wrap nav-inner">
-        <a href="#top" class="brand" aria-label="ServoraPOS home">
+        <a href="index.html" class="brand" aria-label="ClochePOS home">
             <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#F2F0E8"/><svg x="3.5" y="3.5" width="25" height="25" viewBox="2.6 7.2 29 29"><path d="M8 20.2a8 8 0 0 1 16 0" fill="none" stroke="#0B0D0B" stroke-width="2.3" stroke-linecap="round"/><circle cx="16" cy="10" r="1.6" fill="#0B0D0B"/><path d="M6.5 23.4h19" stroke="#FF6A1F" stroke-width="2.3" stroke-linecap="round"/><path d="M11.6 25.3H20.2C22.1 25.3 23.4 26 24.9 27.5L28.9 31.5L26.3 34.1L21.9 29.7C21 28.8 20.1 28.5 18.7 28.5H11.6A1.6 1.6 0 0 1 11.6 25.3Z" fill="#0B0D0B"/><path d="M27.6 30.2 L25.0 32.8" stroke="#F2F0E8" stroke-width="0.7" stroke-linecap="round"/></svg></svg>
-            <span>ServoraPOS</span>
+            <span>ClochePOS</span>
         </a>
-        <nav class="nav-links" aria-label="Main">
-            <a href="#product">Product</a>
-            <a href="#dine-in">Dine-in</a>
-            <a href="#why">Why us</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#faq">FAQ</a>
+        <nav class="nav-links" id="nav-links" aria-label="Main">
+            <a href="features.html">Features</a>
+            <a href="pricing.html">Pricing</a>
             <a href="plan.html">Build your plan</a>
+            <a href="faq.html">FAQ</a>
+            <a class="nav-mobile-only" href="#contact" data-contact>Talk to us</a>
         </nav>
-        <a class="btn btn-light btn-sm" data-cta href="#contact">Book a demo</a>
+        <div class="nav-actions">
+            <a class="btn btn-accent btn-sm" data-trial href="https://start.clochepos.com">Start free trial</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span></span><span></span></button>
+        </div>
     </div>
     <span class="progress" aria-hidden="true"></span>
 </header>
 
 <main id="main">
-    <!-- HERO -->
+<!-- HERO -->
     <section class="hero">
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="wrap hero-grid">
             <div class="hero-copy">
                 <p class="eyebrow intro"><span class="dot"></span> Made in Dhaka, for busy restaurants</p>
                 <h1>The calm, fast restaurant system your counter deserves.</h1>
-                <p class="lead intro" style="--d:700ms">Billing, tables, kitchen, cash and stock in one system. Take orders in seconds, send them straight to the kitchen, print Bangla receipts, accept bKash and Nagad, and know exactly where every taka went. Start with what you need and add modules as you grow.</p>
+                <p class="lead intro" style="--d:700ms">Billing, tables, kitchen, cash and stock in one place. Pay only for what you use, and add more as you grow.</p>
                 <div class="hero-ctas intro" style="--d:850ms">
-                    <a class="btn btn-accent" data-cta href="#contact">Book a free demo</a>
-                    <a class="btn btn-ghost" href="#pricing">See pricing <span aria-hidden="true">→</span></a>
+                    <a class="btn btn-accent" data-trial href="https://start.clochepos.com">Start free trial</a>
+                    <a class="btn btn-ghost" href="features.html">See all features <span aria-hidden="true">→</span></a>
                 </div>
                 <ul class="hero-points intro" style="--d:1000ms">
-                    <li>14-day free trial</li>
-                    <li>We set up your menu for you</li>
-                    <li>Runs on any laptop or Android tablet</li>
+                    <li>14 days free</li>
+                    <li>Keeps selling without internet</li>
+                    <li>Any laptop or Android tablet</li>
                 </ul>
             </div>
 
-            <div class="hero-visual" aria-label="ServoraPOS register, receipt and QR menu">
+            <div class="hero-visual" aria-label="ClochePOS register, receipt and QR menu">
                 <figure class="shot shot-items protect"><img src="assets/img/frag-items.webp" width="833" height="535" alt="Register menu grid with dishes, Bangla names and prices" draggable="false"></figure>
                 <figure class="shot shot-cart protect"><img src="assets/img/frag-cart.webp" width="520" height="1096" alt="Current order with totals and Charge button" draggable="false"></figure>
                 <figure class="shot shot-phone protect"><img src="assets/img/qr-menu.webp" width="520" height="1125" alt="Bilingual QR menu on a phone" draggable="false"></figure>
@@ -85,416 +90,77 @@
         </div>
     </section>
 
-    <!-- WHAT WE DO -->
+    <!-- WHAT IT DOES -->
     <section class="section cream-2" id="about">
         <div class="wrap">
             <header class="section-head">
-                <p class="eyebrow ink">What we do</p>
-                <h2>One system for the whole restaurant.</h2>
-                <p class="lead ink">ServoraPOS runs the day-to-day of restaurants, cafés and food businesses in one place: orders and payments, tables and the kitchen, the cash drawer, stock and food cost, customers and the numbers. We set it up for you, enter your menu, train your team and stay with you on WhatsApp, so you can focus on food and guests while the system keeps count.</p>
+                <p class="eyebrow ink">What it does</p>
+                <h2>One order updates everything else.</h2>
             </header>
-            <div class="explain reveal">
-                <div class="explain-def">
-                    <h3>First, what is a POS?</h3>
-                    <p>POS means <b>point of sale</b>: the system at your counter where orders are taken and bills are paid. A basic POS only prints the bill. ServoraPOS connects that bill to your tables, kitchen, cash drawer, stock and reports, so every order updates everything else on its own.</p>
-                </div>
-                <ol class="flow" aria-label="How an order moves through ServoraPOS">
-                    <li><span>1</span><b>Order taken</b><small>At the counter or at the table, in a few taps</small></li>
-                    <li><span>2</span><b>Kitchen sees it</b><small>On the kitchen screen, with a timer running</small></li>
-                    <li><span>3</span><b>Guest pays</b><small>Cash, bKash, Nagad or card, with a printed receipt</small></li>
-                    <li><span>4</span><b>Everything updates</b><small>Cash drawer, stock and reports, instantly</small></li>
-                </ol>
-            </div>
+            <ol class="flow flow-wide reveal" aria-label="How an order moves through ClochePOS">
+                <li><span>1</span><b>Order taken</b><small>At the counter or the table, in a few taps</small></li>
+                <li><span>2</span><b>Kitchen sees it</b><small>On the kitchen screen, the same second</small></li>
+                <li><span>3</span><b>Guest pays</b><small>Cash, bKash, Nagad or card</small></li>
+                <li><span>4</span><b>Everything adds up</b><small>Drawer, stock and reports, on their own</small></li>
+            </ol>
             <div class="pillars">
-                <article class="pillar reveal">
+                <a class="pillar pillar-link reveal" href="features.html#counter">
                     <span class="pillar-num">01</span>
                     <h3>A faster counter</h3>
-                    <p>Orders in a few taps, dine-in, takeaway or both on one bill. Cash, bKash, Nagad and card, with daily tokens and beautiful Bangla receipts.</p>
-                </article>
-                <article class="pillar reveal">
+                    <p>Orders in a few taps, Bangla receipts, daily tokens and every payment method your guests use.</p>
+                </a>
+                <a class="pillar pillar-link reveal" href="features.html#dine-in">
                     <span class="pillar-num">02</span>
                     <h3>Floor and kitchen in sync</h3>
-                    <p>A live map of your tables and a kitchen screen with timers. Orders reach the kitchen the moment they are taken, and the counter knows when food is ready.</p>
-                </article>
-                <article class="pillar reveal">
+                    <p>A live table map and a kitchen screen with timers. The counter knows when food is ready.</p>
+                </a>
+                <a class="pillar pillar-link reveal" href="features.html#cash">
                     <span class="pillar-num">03</span>
                     <h3>No money leaking</h3>
-                    <p>Blind cash counts at every shift close, every discount and cancelled bill recorded with who and why, and stock that follows your recipes.</p>
-                </article>
-                <article class="pillar reveal">
+                    <p>Blind cash counts, every discount and cancelled bill recorded, stock that follows your recipes.</p>
+                </a>
+                <a class="pillar pillar-link reveal" href="features.html#reports">
                     <span class="pillar-num">04</span>
                     <h3>Numbers you can act on</h3>
-                    <p>Today against last week, your busiest hours, the true cost and profit of every dish, and how each cashier is doing.</p>
-                </article>
+                    <p>Busiest hours, profit per dish, how each cashier is doing and what guests say.</p>
+                </a>
             </div>
+            <p class="more-link"><a href="features.html">See every feature <span aria-hidden="true">→</span></a></p>
         </div>
     </section>
 
-    <!-- PRODUCT BENTO -->
-    <section class="section light" id="product">
-        <div class="wrap">
-            <header class="section-head">
-                <p class="eyebrow ink">The register</p>
-                <h2>Every order in a few taps. Every taka accounted for.</h2>
-                <p class="lead ink">Designed with cashiers on busy Friday nights: big touch targets, typo-proof search in English and বাংলা, and nothing between them and the next guest.</p>
-            </header>
-
-            <div class="bento">
-                <article class="card span-2 reveal">
-                    <div class="card-copy">
-                        <h3>Sizes, add-ons and kitchen notes, without the fuss</h3>
-                        <p>Required choices like crust are pre-selected, prices update live, and quick notes like “No onion” or “Less ice” go straight to the kitchen ticket.</p>
-                    </div>
-                    <figure class="card-shot protect"><img src="assets/img/frag-options.webp" width="839" height="390" alt="Item options with sizes and crust" loading="lazy" draggable="false"></figure>
-                </article>
-
-                <article class="card tall reveal">
-                    <div class="card-copy">
-                        <h3>Receipts guests actually keep</h3>
-                        <p>Your logo, daily token number, VAT line, Wi-Fi and a QR to your menu. Bangla prints perfectly on any thermal printer.</p>
-                    </div>
-                    <figure class="card-receipt protect"><img src="assets/img/receipt.webp" width="272" height="840" alt="Printed receipt with Bangla thank-you message" loading="lazy" draggable="false"></figure>
-                </article>
-
-                <article class="card reveal">
-                    <div class="card-copy">
-                        <h3>bKash, Nagad, card or cash</h3>
-                        <p>Change is calculated instantly. Mobile payments keep their transaction ID for end-of-day matching.</p>
-                    </div>
-                    <figure class="card-shot protect crop-bottom"><img src="assets/img/frag-payment.webp" width="839" height="545" alt="Payment screen with bKash selected" loading="lazy" draggable="false"></figure>
-                </article>
-
-                <article class="card reveal">
-                    <div class="card-copy">
-                        <h3>Hold, resume, token numbers</h3>
-                        <p>Park a table’s order, serve the next guest, and pick it back up with one tap. Cancelling a paid bill needs a manager and a reason, so cash can’t quietly disappear.</p>
-                    </div>
-                    <ul class="mini-list" aria-hidden="true">
-                        <li><span class="badge">Token 12</span> Dine-in · T4 <em>৳1,240</em></li>
-                        <li><span class="badge">Token 15</span> Takeaway <em>৳680</em></li>
-                        <li><span class="badge muted">Cancelled</span> “Wrong item” · by Manager <em>৳320</em></li>
-                    </ul>
-                </article>
-
-                <article class="card wide reveal">
-                    <div class="card-copy">
-                        <h3>Recipes that count your stock for you</h3>
-                        <p>Link each dish to its ingredients once. Every sale deducts buns, patties and cheese automatically, and you see the true food cost of every plate.</p>
-                    </div>
-                    <div class="recipe" aria-hidden="true">
-                        <div class="recipe-row head"><span>Signature Burger</span><span>Cost</span></div>
-                        <div class="recipe-row"><span>Beef patty × 2</span><span>৳120</span></div>
-                        <div class="recipe-row"><span>Burger bun × 1</span><span>৳15</span></div>
-                        <div class="recipe-row"><span>Cheddar slice × 1</span><span>৳12</span></div>
-                        <div class="recipe-row"><span>Lettuce, tomato, onion</span><span>৳4</span></div>
-                        <div class="recipe-row total"><span>Food cost on ৳450</span><span class="ok">33.6%</span></div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- DINE-IN: FLOOR + KITCHEN -->
-    <section class="section cream-2" id="dine-in">
-        <div class="wrap">
-            <header class="section-head">
-                <p class="eyebrow ink">Dine-in, start to finish</p>
-                <h2>Your floor and your kitchen, finally talking to each other.</h2>
-                <p class="lead ink">Draw your restaurant exactly as it is, floor by floor. Staff see which tables are free, seated or waiting too long, and the kitchen sees every order the moment it is taken.</p>
-            </header>
-
-            <div class="feature-split">
-                <figure class="shot-frame protect reveal"><img src="assets/img/frag-floor.webp" width="1104" height="736" alt="Live floor plan with free, seated and long-waiting tables" loading="lazy" draggable="false"></figure>
-                <div class="feature-copy reveal">
-                    <h3>Live table floor plan</h3>
-                    <ul class="ticks">
-                        <li>Draw your own layout: round, square or long tables, plus counter, doors, stairs and walls</li>
-                        <li>Green is free, amber is seated, red has been waiting too long, with time and running bill on every table</li>
-                        <li>Tap a table to start or continue its bill</li>
-                        <li>Move guests to another table, merge two tables, or split one bill in two</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="feature-split reverse">
-                <figure class="shot-frame protect reveal"><img src="assets/img/frag-kitchen.webp" width="1440" height="620" alt="Kitchen screen with new, preparing and ready orders and timers" loading="lazy" draggable="false"></figure>
-                <div class="feature-copy reveal">
-                    <h3>Kitchen screen with timers</h3>
-                    <ul class="ticks">
-                        <li>Orders appear on a kitchen tablet the moment they are placed, in big clear text</li>
-                        <li>Timers turn amber, then red, when an order runs late</li>
-                        <li>When a table orders more, only the new items go to the kitchen, so nothing is cooked twice</li>
-                        <li>Notes like “No onion” and parcel items stand out; cancelled orders show a clear STOP</li>
-                        <li>The counter is told when food is ready to serve</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CASH CONTROL -->
-    <section class="section light" id="control">
+    <!-- A LOOK -->
+    <section class="section light" id="look">
         <div class="wrap feature-split">
+            <figure class="shot-frame protect reveal"><img src="assets/img/frag-floor.webp" width="1104" height="736" alt="Live floor plan with free, seated and long-waiting tables" loading="lazy" draggable="false"></figure>
             <div class="feature-copy reveal">
-                <p class="eyebrow ink">Cash that adds up</p>
-                <h2 class="feature-title">Know exactly how much should be in the drawer.</h2>
-                <p class="lead ink">Most restaurants lose money quietly: a missing note at closing, a discount nobody approved, stock that disappears. ServoraPOS closes those gaps.</p>
+                <p class="eyebrow ink">Built for real service</p>
+                <h2 class="feature-title">Friday night, no panic.</h2>
                 <ul class="ticks">
-                    <li>Every shift starts with the opening cash and records every taka taken out or added</li>
-                    <li>At closing the cashier counts without seeing the expected amount, then sees exactly how much is short or over</li>
-                    <li>An end-of-shift report for each cashier: sales, payment methods, discounts and cancellations</li>
-                    <li>Every discount and cancelled bill is recorded with who did it and why</li>
-                    <li>VAT plus any extra charges you need: service charge, packaging fee or SD</li>
+                    <li>Cashiers learn it in under an hour</li>
+                    <li>Kitchen, counter and tables update each other instantly</li>
+                    <li>Internet down? The register keeps selling and syncs later</li>
+                    <li>Bangla and English on the menu, receipts and QR menu</li>
                 </ul>
             </div>
-            <figure class="drawer-frame protect reveal"><img src="assets/img/frag-drawer.webp" width="448" height="630" alt="Cash drawer panel with opening cash, cash sales, pay outs and expected amount" loading="lazy" draggable="false"></figure>
         </div>
     </section>
 
-    <!-- INSIGHTS -->
-    <section class="section dark" id="insights">
-        <div class="wrap insights">
-            <header class="section-head">
-                <p class="eyebrow">Insights</p>
-                <h2>Know your busiest hour before it arrives.</h2>
-                <p class="lead">Sales by day, the hour your kitchen gets slammed, which dishes earn and which ones just sit there, and how guests pay. All updated the moment an order is paid.</p>
-            </header>
-            <div class="insight-stage">
-                <figure class="shot ins-trend protect wipe"><img src="assets/img/frag-trend.webp" width="911" height="438" alt="Net sales by day chart" draggable="false"></figure>
-                <figure class="shot ins-mix protect wipe"><img src="assets/img/frag-paymix.webp" width="444" height="438" alt="Payment mix: cash, bKash, card, Nagad" draggable="false"></figure>
-                <figure class="shot ins-heat protect wipe"><img src="assets/img/frag-heatmap.webp" width="911" height="413" alt="Busiest hours heatmap" draggable="false"></figure>
-            </div>
-        </div>
-    </section>
-
-    <!-- BANGLADESH -->
-    <section class="section light" id="bangladesh">
-        <div class="wrap">
-            <header class="section-head">
-                <p class="eyebrow ink">Local by design</p>
-                <h2>Built around how restaurants really work here.</h2>
-                <p class="lead ink">Local payment apps, your language on the menu and the receipt, and your tax rules. We started in Bangladesh, and the same care goes into every market we serve.</p>
-            </header>
-            <div class="bd-grid">
-                <article class="bd reveal"><span class="bd-ico" aria-hidden="true">৳</span><h3>bKash, Nagad, Rocket</h3><p>First-class payment methods with transaction IDs, split bills and change for cash.</p></article>
-                <article class="bd reveal"><span class="bd-ico bn" aria-hidden="true">অ</span><h3>Your language everywhere</h3><p>Bangla and English dish names, receipts and a bilingual QR menu guests can switch with one tap.</p></article>
-                <article class="bd reveal"><span class="bd-ico" aria-hidden="true">#</span><h3>Token numbers</h3><p>Big daily token on every receipt to call takeaway orders. Resets every morning.</p></article>
-                <article class="bd reveal"><span class="bd-ico" aria-hidden="true">%</span><h3>Local tax built in <span class="soon">Mushak 6.3 soon</span></h3><p>VAT inclusive or exclusive, your tax number on receipts, extra charges and rounding. Mushak 6.3 invoices and VAT reports are next.</p></article>
-                <article class="bd reveal"><span class="bd-ico" aria-hidden="true">▣</span><h3>Any device you own</h3><p>A laptop, a cheap Android tablet or the PC you already have, with the thermal printer you already bought.</p></article>
-                <article class="bd reveal"><span class="bd-ico" aria-hidden="true">⚡</span><h3>Power-cut ready <span class="soon">Coming soon</span></h3><p>An offline register that keeps selling when the internet drops and syncs when it’s back.</p></article>
-            </div>
-        </div>
-    </section>
-
-    <!-- QR MENU -->
-    <section class="section cream-2">
-        <div class="wrap qr-split">
-            <div class="qr-copy reveal">
-                <p class="eyebrow ink">QR digital menu</p>
-                <h2>A menu guests enjoy scrolling.</h2>
-                <p class="lead ink">Photos, Bangla and English, chef’s picks at the top and live “sold out” labels the moment you run out. Print a table card in one click. No app, no PDF.</p>
-                <ul class="ticks">
-                    <li>Updates instantly when you change a price</li>
-                    <li>A QR per table, ready to print</li>
-                    <li>Your colours, your logo, your Wi-Fi</li>
-                </ul>
-            </div>
-            <div class="phones reveal" aria-label="QR menu on two phones">
-                <figure class="phone protect"><img src="assets/img/qr-menu.webp" width="520" height="1125" alt="QR menu header with chef's picks" loading="lazy" draggable="false"></figure>
-                <figure class="phone back protect"><img src="assets/img/qr-menu-list.webp" width="520" height="1125" alt="QR menu list with photos and prices" loading="lazy" draggable="false"></figure>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI -->
-    <section class="section dark ai" id="ai">
-        <div class="wrap ai-grid">
-            <div>
-                <p class="eyebrow">AI for your restaurant <span class="soon dark">Coming soon</span></p>
-                <h2>Ask your restaurant a question. In Bangla.</h2>
-                <p class="lead">Not a gimmick. AI that works from your real sales, stock and staff activity, for you and for your guests. It always shows the numbers behind its answers, and it never changes anything without your OK.</p>
-                <ul class="ai-list">
-                    <li><b>Ask your business</b> “Which item sold most yesterday?” Answers in Bangla or English, straight from your own numbers.</li>
-                    <li><b>Theft &amp; loss alerts</b> Unusual cancellations, discounts or cash shortages flagged by cashier and shift.</li>
-                    <li><b>A smart menu for guests</b> A guest types “something spicy under ৳400” on the QR menu and gets dishes that fit, skipping anything they’re allergic to.</li>
-                    <li><b>Menu from a photo</b> Snap your paper menu and get a ready digital menu with Bangla names, to check and publish.</li>
-                    <li><b>Prep &amp; stock forecast</b> How much to prepare and what to buy for the days ahead.</li>
-                    <li><b>Personal offers</b> Spot regulars who haven’t come back and send them an offer they’ll actually want.</li>
-                </ul>
-            </div>
-            <div class="chat" aria-label="Example conversation">
-                <div class="msg me bn">গতকাল সবচেয়ে বেশি কোন আইটেম বিক্রি হয়েছে?</div>
-                <div class="msg bot">
-                    <p><b>Classic Beef Burger</b> led yesterday with <b>38 sold</b> (৳12,160), up 18% on last Friday. Dinner from 8–9 pm brought 31% of it.</p>
-                    <p class="hint">You’re likely to run low on burger buns by Saturday evening. Order 120 more.</p>
-                </div>
-                <div class="msg me">Any cancelled bills I should look at?</div>
-                <div class="msg bot"><p>3 bills were cancelled after 10 pm on one register, all marked “Wrong item”. That’s higher than usual for that shift.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY US -->
-    <section class="section cream-2" id="why">
-        <div class="wrap">
-            <header class="section-head">
-                <p class="eyebrow ink">Why ServoraPOS</p>
-                <h2>Traditional systems record your sales. ServoraPOS helps you run the restaurant.</h2>
-                <p class="lead ink">A faster counter, a kitchen in sync, no cash leaks, and you know exactly where your profit comes from.</p>
-            </header>
-            <div class="compare reveal" role="table" aria-label="ServoraPOS compared with traditional restaurant software">
-                <div class="compare-row compare-head" role="row">
-                    <span role="columnheader"></span>
-                    <span role="columnheader">Traditional systems</span>
-                    <span role="columnheader">ServoraPOS</span>
-                </div>
-                <div class="compare-row" role="row"><span role="rowheader">Learning it</span><span role="cell">Old screens, days of training</span><span role="cell">A modern app; cashiers learn it in an hour</span></div>
-                <div class="compare-row" role="row"><span role="rowheader">bKash &amp; Nagad</span><span role="cell">“Other payment”, no record</span><span role="cell">Built in, with transaction IDs for daily checks</span></div>
-                <div class="compare-row" role="row"><span role="rowheader">Bangla</span><span role="cell">Often can’t print it</span><span role="cell">Bangla menu, receipts and QR menu</span></div>
-                <div class="compare-row" role="row"><span role="rowheader">Price</span><span role="cell">One big package</span><span role="cell">Pay only for the modules you use</span></div>
-                <div class="compare-row" role="row"><span role="rowheader">Cash control</span><span role="cell">Sales totals only</span><span role="cell">Blind counts, shortage per cashier, who cancelled what</span></div>
-                <div class="compare-row" role="row"><span role="rowheader">Profit</span><span role="cell">How much you sold</span><span role="cell">Cost and profit of every dish, busiest hours</span></div>
-                <div class="compare-row" role="row"><span role="rowheader">Kitchen &amp; tables</span><span role="cell">Paper slips and table numbers</span><span role="cell">Live floor map and kitchen screen with timers</span></div>
-                <div class="compare-row" role="row"><span role="rowheader">Guest menu</span><span role="cell">Printed or a PDF</span><span role="cell">Live QR menu with photos, in two languages</span></div>
-                <div class="compare-row" role="row"><span role="rowheader">Updates &amp; support</span><span role="cell">Rare updates, call centres</span><span role="cell">Regular new features, AI on the way, WhatsApp support</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MODULES -->
-    <section class="section light" id="modules">
-        <div class="wrap">
-            <header class="section-head">
-                <p class="eyebrow ink">Modular by design</p>
-                <h2>Start small. Switch on more as you grow.</h2>
-                <p class="lead ink">Every restaurant is different, so ServoraPOS is built from modules. Pay for what you use today and add the rest without changing systems.</p>
-            </header>
-            <div class="modules">
-                <div class="mod-col">
-                    <h3>Front of house</h3>
-                    <ul>
-                        <li class="live">Register &amp; payments</li>
-                        <li class="live">Dine-in, takeaway &amp; mixed orders</li>
-                        <li class="live">Table floor plan</li>
-                        <li class="live">Move, merge &amp; split bills</li>
-                        <li class="live">Kitchen screen</li>
-                        <li class="live">Discounts with limits</li>
-                        <li class="live">Customers &amp; visit history</li>
-                        <li class="live">QR digital menu</li>
-                        <li class="live">Guest feedback &amp; ratings</li>
-                        <li>Delivery &amp; Foodpanda</li>
-                        <li>Order &amp; pay from the QR menu</li>
-                        <li>Waiter app</li>
-                    </ul>
-                </div>
-                <div class="mod-col">
-                    <h3>Back of house</h3>
-                    <ul>
-                        <li class="live">Shifts &amp; cash drawer</li>
-                        <li class="live">VAT &amp; extra charges</li>
-                        <li class="live">Inventory</li>
-                        <li class="live">Recipes &amp; food cost</li>
-                        <li class="live">Staff roles &amp; PIN</li>
-                        <li>Allergens &amp; portions</li>
-                        <li>Purchasing &amp; suppliers</li>
-                        <li>Expenses</li>
-                        <li>Attendance &amp; payroll</li>
-                    </ul>
-                </div>
-                <div class="mod-col">
-                    <h3>Growth &amp; insight</h3>
-                    <ul>
-                        <li class="live">Dashboard &amp; analytics</li>
-                        <li>AI assistant &amp; alerts</li>
-                        <li>Personal offers &amp; loyalty</li>
-                        <li>Owner’s daily digest</li>
-                        <li>SMS campaigns</li>
-                        <li>Mushak 6.3 &amp; VAT reports</li>
-                        <li>Multi-branch &amp; area benchmarks</li>
-                    </ul>
-                </div>
-            </div>
-            <p class="legend"><span class="live-dot"></span> Available now <span class="soon-dot"></span> On the roadmap</p>
-        </div>
-    </section>
-
-    <!-- PRICING -->
-    <section class="section cream-2" id="pricing">
+    <!-- PLANS AT A GLANCE -->
+    <section class="section cream-2" id="plans">
         <div class="wrap">
             <header class="section-head center">
                 <p class="eyebrow ink">Pricing</p>
-                <h2>Honest prices, per branch.</h2>
-                <p class="lead ink">No hidden module fees. 14 days free on every plan.</p>
-                <div class="billing" role="radiogroup" aria-label="Billing period">
-                    <button role="radio" aria-checked="true" data-billing="monthly">Monthly</button>
-                    <button role="radio" aria-checked="false" data-billing="yearly">Yearly <span>2 months free</span></button>
-                </div>
+                <h2>From ৳990 a month.</h2>
+                <p class="lead ink">Per branch. No long contract. 14 days free on every plan.</p>
             </header>
-
-            <div class="plans">
-                <article class="plan">
-                    <h3>Lite</h3>
-                    <p class="plan-for">Kiosks, tea &amp; juice bars</p>
-                    <p class="price"><span data-monthly="990" data-yearly="9,900">990</span><small data-period>/month</small></p>
-                    <ul>
-                        <li>Register, menu &amp; payments</li>
-                        <li>Dine-in, takeaway &amp; mixed orders</li>
-                        <li>Bangla receipts &amp; kitchen tickets</li>
-                        <li>Basic discounts, VAT &amp; extra charges</li>
-                        <li>Daily sales dashboard</li>
-                        <li>1 register · 3 staff</li>
-                    </ul>
-                    <a class="btn btn-outline" data-cta href="#contact">Start free trial</a>
-                </article>
-                <article class="plan featured">
-                    <p class="tag">Most popular</p>
-                    <h3>Growth</h3>
-                    <p class="plan-for">Cafés &amp; casual dining</p>
-                    <p class="price"><span data-monthly="1,990" data-yearly="19,900">1,990</span><small data-period>/month</small></p>
-                    <ul>
-                        <li>Everything in Lite</li>
-                        <li>Customers &amp; visit history</li>
-                        <li>Inventory, recipes &amp; food cost</li>
-                        <li>QR digital menu</li>
-                        <li>Guest feedback &amp; ratings</li>
-                        <li>Analytics &amp; busiest hours</li>
-                        <li>Shifts &amp; cash drawer</li>
-                        <li>Split payments</li>
-                        <li>2 registers · 10 staff</li>
-                    </ul>
-                    <a class="btn btn-accent" data-cta href="#contact">Start free trial</a>
-                </article>
-                <article class="plan">
-                    <h3>Pro</h3>
-                    <p class="plan-for">Busy restaurants</p>
-                    <p class="price"><span data-monthly="3,490" data-yearly="34,900">3,490</span><small data-period>/month</small></p>
-                    <ul>
-                        <li>Everything in Growth</li>
-                        <li>Table floor plan: move, merge &amp; split</li>
-                        <li>Kitchen screen with timers</li>
-                        <li>Delivery &amp; waiter app <em>soon</em></li>
-                        <li>Purchasing &amp; expenses <em>soon</em></li>
-                        <li>AI assistant &amp; theft alerts <em>soon</em></li>
-                        <li>3 registers · 25 staff</li>
-                    </ul>
-                    <a class="btn btn-outline" data-cta href="#contact">Talk to us</a>
-                </article>
-                <article class="plan">
-                    <h3>Chain</h3>
-                    <p class="plan-for">3+ branches</p>
-                    <p class="price custom"><small class="from">From</small><span>5,500</span><small>/branch</small></p>
-                    <ul>
-                        <li>Everything in Pro</li>
-                        <li>Central menu &amp; branch pricing <em>soon</em></li>
-                        <li>Stock transfers &amp; combined reports <em>soon</em></li>
-                        <li>Accounting, HR &amp; API <em>soon</em></li>
-                        <li>Dedicated account manager</li>
-                    </ul>
-                    <a class="btn btn-outline" data-cta href="#contact">Contact sales</a>
-                </article>
+            <div class="glance">
+                <a class="glance-card reveal" href="pricing.html"><b>Lite</b><span><i class="tk">৳</i>990<small>/month</small></span><small>Kiosks, tea &amp; juice bars</small></a>
+                <a class="glance-card featured reveal" href="pricing.html"><b>Growth</b><span><i class="tk">৳</i>1,990<small>/month</small></span><small>Cafés &amp; casual dining</small></a>
+                <a class="glance-card reveal" href="pricing.html"><b>Pro</b><span><i class="tk">৳</i>3,490<small>/month</small></span><small>Busy restaurants</small></a>
+                <a class="glance-card reveal" href="plan.html"><b>Your own</b><span>Pick features</span><small>Only what you need</small></a>
             </div>
-            <p class="build-cta"><a class="btn btn-accent" href="plan.html">Build your own plan <span aria-hidden="true">→</span></a><span>Pick only the features you need, in taka or US dollars.</span></p>
-            <p class="fineprint">All prices in BDT, per branch. Extra register ৳300/month · SMS credits at near cost · Setup &amp; training ৳3,000 (free on yearly plans).</p>
+            <p class="more-link center"><a href="pricing.html">Compare plans <span aria-hidden="true">→</span></a></p>
         </div>
     </section>
 
@@ -513,47 +179,38 @@
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section cream-2" id="faq">
-        <div class="wrap faq-wrap">
-            <header class="section-head">
-                <p class="eyebrow ink">FAQ</p>
-                <h2>Questions owners ask us.</h2>
-            </header>
-            <div class="faq">
-                <details><summary>What do I need to run ServoraPOS?</summary><p>Any laptop, PC or Android tablet with a modern browser and an internet connection. For receipts, any 58 mm or 80 mm thermal printer works.</p></details>
-                <details><summary>What happens if the internet goes down?</summary><p>Today ServoraPOS needs an internet connection. An offline register that keeps selling and syncs later is on our roadmap and is one of our top priorities.</p></details>
-                <details><summary>Does it work for sit-down restaurants with many tables?</summary><p>Yes. You draw your own floor plan, staff see which tables are free or seated, and orders go straight to a kitchen screen. Guests can be moved to another table, two tables merged, or a bill split in two.</p></details>
-                <details><summary>How does it stop cash going missing?</summary><p>Each shift starts with the opening cash. At closing the cashier counts without seeing the expected amount, and the system shows exactly how much is short or over. Every discount and cancelled bill is recorded with who did it and why.</p></details>
-                <details><summary>Which AI features are available?</summary><p>AI is coming soon: asking your business questions in Bangla, theft and loss alerts, a smart menu that suggests dishes to guests, menu set-up from a photo and prep forecasts. Clients get them as add-ons without changing systems.</p></details>
-                <details><summary>Is my data safe? Who owns it?</summary><p>Your data is yours. It is backed up daily, and you can export your sales, menu and customers at any time.</p></details>
-                <details><summary>Do you support VAT and Mushak?</summary><p>VAT is built in today, inclusive or exclusive, with your BIN on every receipt. Mushak 6.3 invoices and monthly VAT reports are coming next.</p></details>
-                <details><summary>Can I start with one plan and upgrade later?</summary><p>Yes. Modules switch on instantly and your data stays exactly where it is.</p></details>
-                <details><summary>Is there a contract?</summary><p>No long contract. Pay monthly, or yearly to get two months free.</p></details>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA -->
     <section class="section dark cta" id="contact">
         <div class="wrap cta-inner">
-            <h2>See ServoraPOS running your menu.</h2>
-            <p class="lead">Book a 20-minute demo. Bring your menu, and we’ll show you what your counter could look like tomorrow.</p>
+            <h2>See ClochePOS running your menu.</h2>
+            <p class="lead">Try it free for 14 days, or book a 20-minute demo and bring your menu.</p>
             <div class="hero-ctas center">
-                <a class="btn btn-accent" id="cta-whatsapp" href="#">Chat on WhatsApp</a>
-                <a class="btn btn-ghost" id="cta-email" href="#">Email us</a>
+                <a class="btn btn-accent" data-trial href="https://start.clochepos.com">Start free trial</a>
+                <a class="btn btn-ghost" data-cta href="#contact">Chat on WhatsApp</a>
+                <a class="btn btn-ghost" data-email href="#contact">Email us</a>
             </div>
         </div>
     </section>
 </main>
 
 <footer class="footer">
-    <div class="wrap footer-inner">
-        <a href="#top" class="brand small" aria-label="ServoraPOS home">
-            <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#F2F0E8"/><svg x="3.5" y="3.5" width="25" height="25" viewBox="2.6 7.2 29 29"><path d="M8 20.2a8 8 0 0 1 16 0" fill="none" stroke="#0B0D0B" stroke-width="2.3" stroke-linecap="round"/><circle cx="16" cy="10" r="1.6" fill="#0B0D0B"/><path d="M6.5 23.4h19" stroke="#FF6A1F" stroke-width="2.3" stroke-linecap="round"/><path d="M11.6 25.3H20.2C22.1 25.3 23.4 26 24.9 27.5L28.9 31.5L26.3 34.1L21.9 29.7C21 28.8 20.1 28.5 18.7 28.5H11.6A1.6 1.6 0 0 1 11.6 25.3Z" fill="#0B0D0B"/><path d="M27.6 30.2 L25.0 32.8" stroke="#F2F0E8" stroke-width="0.7" stroke-linecap="round"/></svg></svg>
-            <span>ServoraPOS</span>
-        </a>
-        <p>© <span id="year">2026</span> ServoraPOS. All rights reserved. Product screens show a demo restaurant. ServoraPOS and the ServoraPOS logo are trademarks of their owner; the product design may not be reproduced.</p>
+    <div class="wrap footer-grid">
+        <div>
+            <a href="index.html" class="brand small" aria-label="ClochePOS home">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#F2F0E8"/><svg x="3.5" y="3.5" width="25" height="25" viewBox="2.6 7.2 29 29"><path d="M8 20.2a8 8 0 0 1 16 0" fill="none" stroke="#0B0D0B" stroke-width="2.3" stroke-linecap="round"/><circle cx="16" cy="10" r="1.6" fill="#0B0D0B"/><path d="M6.5 23.4h19" stroke="#FF6A1F" stroke-width="2.3" stroke-linecap="round"/><path d="M11.6 25.3H20.2C22.1 25.3 23.4 26 24.9 27.5L28.9 31.5L26.3 34.1L21.9 29.7C21 28.8 20.1 28.5 18.7 28.5H11.6A1.6 1.6 0 0 1 11.6 25.3Z" fill="#0B0D0B"/><path d="M27.6 30.2 L25.0 32.8" stroke="#F2F0E8" stroke-width="0.7" stroke-linecap="round"/></svg></svg>
+                <span>ClochePOS</span>
+            </a>
+            <p class="footer-tag">The calm, fast restaurant system. Made in Dhaka.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="features.html">Features</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="plan.html">Build your plan</a>
+            <a href="faq.html">FAQ</a>
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+        <p class="footer-legal">© <span id="year">2026</span> ClochePOS. All rights reserved. Product screens show a demo restaurant. ClochePOS and its logo are trademarks of their owner.</p>
     </div>
 </footer>
 

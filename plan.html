@@ -3,41 +3,49 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Build your plan · ServoraPOS</title>
-    <meta name="description" content="Pick the ServoraPOS features your restaurant needs and see the price instantly, in taka or US dollars. Not quite right? Tell us and we will shape a plan with you.">
+    <title>Build your plan · ClochePOS</title>
+    <meta name="description" content="Pick the ClochePOS features your restaurant needs and see the price instantly, in taka or US dollars. Not quite right? Tell us and we will shape a plan with you.">
     <meta name="theme-color" content="#0b0d0b">
-    <meta property="og:title" content="Build your ServoraPOS plan">
-    <meta property="og:description" content="Choose only the features you need and see your price instantly.">
+    <link rel="canonical" href="https://clochepos.com/plan">
+    <meta property="og:title" content="Build your plan · ClochePOS">
+    <meta property="og:description" content="Pick the ClochePOS features your restaurant needs and see the price instantly, in taka or US dollars. Not quite right? Tell us and we will shape a plan with you.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clochepos.com/plan">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400..700&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="assets/plan.css">
+    <script>document.documentElement.classList.add("js")</script>
 </head>
 <body class="plan-page">
 <a class="skip" href="#main">Skip to content</a>
 
+<!-- Built by build.py from pages/plan.html: edit that file, not this one. -->
 <header class="nav">
     <div class="wrap nav-inner">
-        <a href="index.html" class="brand" aria-label="ServoraPOS home">
+        <a href="index.html" class="brand" aria-label="ClochePOS home">
             <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#F2F0E8"/><svg x="3.5" y="3.5" width="25" height="25" viewBox="2.6 7.2 29 29"><path d="M8 20.2a8 8 0 0 1 16 0" fill="none" stroke="#0B0D0B" stroke-width="2.3" stroke-linecap="round"/><circle cx="16" cy="10" r="1.6" fill="#0B0D0B"/><path d="M6.5 23.4h19" stroke="#FF6A1F" stroke-width="2.3" stroke-linecap="round"/><path d="M11.6 25.3H20.2C22.1 25.3 23.4 26 24.9 27.5L28.9 31.5L26.3 34.1L21.9 29.7C21 28.8 20.1 28.5 18.7 28.5H11.6A1.6 1.6 0 0 1 11.6 25.3Z" fill="#0B0D0B"/><path d="M27.6 30.2 L25.0 32.8" stroke="#F2F0E8" stroke-width="0.7" stroke-linecap="round"/></svg></svg>
-            <span>ServoraPOS</span>
+            <span>ClochePOS</span>
         </a>
-        <nav class="nav-links" aria-label="Main">
-            <a href="index.html#product">Product</a>
-            <a href="index.html#why">Why us</a>
-            <a href="index.html#pricing">Plans</a>
+        <nav class="nav-links" id="nav-links" aria-label="Main">
+            <a href="features.html">Features</a>
+            <a href="pricing.html">Pricing</a>
             <a href="plan.html" aria-current="page">Build your plan</a>
-            <a href="index.html#faq">FAQ</a>
+            <a href="faq.html">FAQ</a>
+            <a class="nav-mobile-only" href="#contact" data-contact>Talk to us</a>
         </nav>
-        <a class="btn btn-light btn-sm" href="#talk">Talk to us</a>
+        <div class="nav-actions">
+            <a class="btn btn-accent btn-sm" data-trial href="https://start.clochepos.com">Start free trial</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span></span><span></span></button>
+        </div>
     </div>
+    <span class="progress" aria-hidden="true"></span>
 </header>
 
 <main id="main">
-    <section class="plan-hero">
+<section class="plan-hero">
         <div class="wrap plan-hero-inner">
             <div class="plan-hero-text">
                 <p class="eyebrow"><span class="dot"></span> Build your plan</p>
@@ -127,7 +135,7 @@
                     <label class="field"><span>Phone / WhatsApp</span><input name="phone" type="tel" autocomplete="tel"></label>
                 </div>
                 <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email"></label>
-                <label class="field"><span>Tell us more</span><textarea name="message" rows="4" placeholder="e.g. We have 2 branches and a budget of around ৳2,500 a month, and we need delivery tracking."></textarea></label>
+                <label class="field"><span>Tell us more</span><textarea name="message" rows="4" placeholder="e.g. We have 2 branches and a budget of around ৳2,500 a month, and we need a waiter app."></textarea></label>
                 <label class="attach"><input type="checkbox" name="attach" checked> Include the plan I built above</label>
                 <p class="form-error" id="form-error" role="alert" hidden></p>
                 <div class="form-actions">
@@ -138,19 +146,34 @@
             </form>
         </div>
     </section>
+
+    <p class="wrap plan-fineprint">Prices exclude any local taxes. Features marked “coming soon” are on our roadmap; tick them to tell us you’re interested.</p>
+
 </main>
 
 <footer class="footer">
-    <div class="wrap footer-inner">
-        <a href="index.html" class="brand small" aria-label="ServoraPOS home">
-            <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#F2F0E8"/><svg x="3.5" y="3.5" width="25" height="25" viewBox="2.6 7.2 29 29"><path d="M8 20.2a8 8 0 0 1 16 0" fill="none" stroke="#0B0D0B" stroke-width="2.3" stroke-linecap="round"/><circle cx="16" cy="10" r="1.6" fill="#0B0D0B"/><path d="M6.5 23.4h19" stroke="#FF6A1F" stroke-width="2.3" stroke-linecap="round"/><path d="M11.6 25.3H20.2C22.1 25.3 23.4 26 24.9 27.5L28.9 31.5L26.3 34.1L21.9 29.7C21 28.8 20.1 28.5 18.7 28.5H11.6A1.6 1.6 0 0 1 11.6 25.3Z" fill="#0B0D0B"/><path d="M27.6 30.2 L25.0 32.8" stroke="#F2F0E8" stroke-width="0.7" stroke-linecap="round"/></svg></svg>
-            <span>ServoraPOS</span>
-        </a>
-        <p>© <span id="year">2026</span> ServoraPOS. Prices exclude any local taxes. Features marked “coming soon” are on our roadmap; tick them to tell us you’re interested.</p>
+    <div class="wrap footer-grid">
+        <div>
+            <a href="index.html" class="brand small" aria-label="ClochePOS home">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#F2F0E8"/><svg x="3.5" y="3.5" width="25" height="25" viewBox="2.6 7.2 29 29"><path d="M8 20.2a8 8 0 0 1 16 0" fill="none" stroke="#0B0D0B" stroke-width="2.3" stroke-linecap="round"/><circle cx="16" cy="10" r="1.6" fill="#0B0D0B"/><path d="M6.5 23.4h19" stroke="#FF6A1F" stroke-width="2.3" stroke-linecap="round"/><path d="M11.6 25.3H20.2C22.1 25.3 23.4 26 24.9 27.5L28.9 31.5L26.3 34.1L21.9 29.7C21 28.8 20.1 28.5 18.7 28.5H11.6A1.6 1.6 0 0 1 11.6 25.3Z" fill="#0B0D0B"/><path d="M27.6 30.2 L25.0 32.8" stroke="#F2F0E8" stroke-width="0.7" stroke-linecap="round"/></svg></svg>
+                <span>ClochePOS</span>
+            </a>
+            <p class="footer-tag">The calm, fast restaurant system. Made in Dhaka.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="features.html">Features</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="plan.html">Build your plan</a>
+            <a href="faq.html">FAQ</a>
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+        <p class="footer-legal">© <span id="year">2026</span> ClochePOS. All rights reserved. Product screens show a demo restaurant. ClochePOS and its logo are trademarks of their owner.</p>
     </div>
 </footer>
 
 <script src="assets/contact.js" defer></script>
+<script src="assets/site.js" defer></script>
 <script src="assets/plan.js" defer></script>
 </body>
 </html>

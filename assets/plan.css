@@ -3,7 +3,6 @@
 .plan-page { --font: 'Figtree', 'Hind Siliguri', system-ui, sans-serif; font-family: var(--font); }
 .cur { font-family: 'Hind Siliguri', var(--font); font-weight: 600; }
 
-.plan-page .nav-links a[aria-current='page'] { color: var(--text-d); background: rgba(255, 255, 255, 0.08); }
 
 /* ---------- Hero ---------- */
 .plan-hero { padding: 36px 0 30px; background: radial-gradient(80% 120% at 85% -10%, rgba(255, 106, 31, 0.22), transparent 60%), var(--ink); }
