@@ -41,6 +41,7 @@ const GROUPS = [
             { id: 'customers', name: 'Customers', desc: 'Phone-first guest records with visits and spend.', BDT: 250, USD: 5 },
             { id: 'qr', name: 'QR digital menu', desc: 'A live mobile menu with photos, in two languages, and a QR code per table.', BDT: 250, USD: 5 },
             { id: 'qr-order', name: 'Order from the QR menu', desc: 'Guests order from their table; staff accept it on the register and it goes to the kitchen.', BDT: 300, USD: 6, requires: ['qr'] },
+            { id: 'dietary', name: 'Allergens & portions', desc: 'Allergens and diet labels on every dish (set once on ingredients), portion sizes, and an allergy filter on the QR menu.', BDT: 100, USD: 2 },
             { id: 'feedback', name: 'Guest feedback', desc: 'A “Rate your visit” QR on every receipt and the menu; ratings, comments and follow-up in one inbox.', BDT: 150, USD: 3 },
         ],
     },
@@ -72,7 +73,6 @@ const GROUPS = [
                 ['credit', 'Due ledger (baki khata)', 'Credit for regulars and companies, with due collection.'],
             ]],
             ['Menu & back office', [
-                ['dietary', 'Allergens & portions', 'Allergen and diet labels from recipes, and portion sizes on the menu.'],
                 ['swaps', 'Swaps & holds', '“No onion, extra cheese” at the register; stock and allergens follow.'],
                 ['purchasing', 'Purchasing & suppliers', 'Purchase orders, suppliers and supplier dues.'],
                 ['expenses', 'Expenses', 'Rent, salaries and bills, for the real profit.'],
@@ -101,8 +101,8 @@ const GROUPS = [
 // The bundles on the home page. A bundle is suggested when it covers the selection for less.
 const PLANS = [
     { name: 'Lite', registers: 1, includes: ['discounts'], BDT: 990, USD: 22 },
-    { name: 'Growth', registers: 2, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'feedback', 'analytics'], BDT: 1990, USD: 45 },
-    { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'qr-order', 'feedback', 'analytics', 'tables', 'kitchen', 'stations', 'pickup'], BDT: 3490, USD: 79 },
+    { name: 'Growth', registers: 2, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'dietary', 'feedback', 'analytics'], BDT: 1990, USD: 45 },
+    { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'qr-order', 'dietary', 'feedback', 'analytics', 'tables', 'kitchen', 'stations', 'pickup'], BDT: 3490, USD: 79 },
 ];
 
 // Roadmap sections are [title, [[id, name, desc]]] for brevity.
