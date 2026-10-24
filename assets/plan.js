@@ -24,6 +24,7 @@ const GROUPS = [
         items: [
             { id: 'tables', name: 'Table floor plan', desc: 'Draw your own floors; see free and busy tables; move, merge and split bills.', BDT: 400, USD: 8 },
             { id: 'kitchen', name: 'Kitchen screen', desc: 'Orders on a kitchen screen with timers; guests see live status (received, preparing, ready) on their phone.', BDT: 400, USD: 8 },
+            { id: 'pickup', name: 'Pickup screen', desc: 'A TV at the counter shows token numbers as preparing, then ready to collect, with a chime.', BDT: 150, USD: 3, requires: ['kitchen'] },
             { id: 'stations', name: 'Kitchen & bar stations', desc: 'Drinks to the bar, food to the kitchen: each station gets its own screen and printer.', BDT: 200, USD: 4 },
         ],
     },
@@ -57,7 +58,6 @@ const GROUPS = [
             ['Dine-in & service', [
                 ['waiter', 'Waiter app', 'Waiters take orders at the table from their phone.'],
                 ['qr-pay', 'Pay from the QR menu', 'Guests pay the bill on their phone (bKash, Nagad or card where available); the table is marked paid on the register.'],
-                ['pickup', 'Pickup screen', 'A TV showing token numbers as orders become ready.'],
                 ['display', 'Customer display', 'A second screen facing the guest with the live bill and a payment QR.'],
                 ['preorders', 'Pre-orders & Ramadan mode', 'Iftar boxes, time-slot pickups and bulk corporate orders.'],
                 ['reservations', 'Reservations & waitlist', 'Bookings, a waitlist and an SMS when the table is ready.'],
@@ -102,7 +102,7 @@ const GROUPS = [
 const PLANS = [
     { name: 'Lite', registers: 1, includes: ['discounts'], BDT: 990, USD: 22 },
     { name: 'Growth', registers: 2, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'feedback', 'analytics'], BDT: 1990, USD: 45 },
-    { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'qr-order', 'feedback', 'analytics', 'tables', 'kitchen', 'stations'], BDT: 3490, USD: 79 },
+    { name: 'Pro', registers: 3, includes: ['discounts', 'split', 'shifts', 'inventory', 'recipes', 'customers', 'qr', 'qr-order', 'feedback', 'analytics', 'tables', 'kitchen', 'stations', 'pickup'], BDT: 3490, USD: 79 },
 ];
 
 // Roadmap sections are [title, [[id, name, desc]]] for brevity.
